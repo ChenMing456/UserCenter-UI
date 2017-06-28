@@ -1,0 +1,33 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">应用管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="AppCtrl">
+    <tabset>
+        <tab heading="我的应用">
+            <tab-heading>我的应用</tab-heading>
+            <div class="noborder bg-white panel panel-default" ng-show="$root.activeCalls===0">
+                <div class="bg-white bottom-border-only panel-body b-b b-light">
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-sm btn-info ng-pristine ng-untouched ng-valid" ng-model="createVersion" ng-click="createApp()"><i class="fa fa-plus"></i> 创建应用</button>
+                        <button type="submit" class="btn btn-sm btn-warning" ng-click="refreshApp()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4">
+                        <input placeholder="查找应用" class="input-sm form-control ng-pristine ng-untouched ng-valid" type="text" ng-model="filter.filterVersion">
+                    </div>
+                </div>
+                <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize ng-style="getTableHeight(myAppsGridOptions)"></div>
+            </div>
+
+        </tab>
+        <tab heading="应用市场">
+            <tab-heading>应用市场</tab-heading>
+            <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize></div>
+        </tab>
+        <tab heading="已购买应用">
+            <tab-heading>已购买应用</tab-heading>
+            <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize></div>
+        </tab>
+    </tabset>
+</div>

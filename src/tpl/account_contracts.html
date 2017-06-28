@@ -1,0 +1,42 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">合约管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="ContractCtrl as contracts">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="col-sm-3 m-b-xs">
+                <button type="submit" class="btn btn-sm btn-warning" ng-click="contract.filterContracts()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
+            </div>
+            <div class="col-sm-6">
+                <div class="radio">
+                    <label class="i-checks">
+                        <input type="radio" name="filter_opt" value="1" checked="" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                        <i></i>
+                        待处理
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="i-checks">
+                        <input type="radio" name="filter_opt" value="2" ng-model="contract.filter_opt">
+                        <i></i>
+                        已处理
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="i-checks">
+                        <input type="radio" name="filter_opt" value="3" ng-model="contract.filter_opt">
+                        <i></i>
+                        全部
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <input placeholder="查找合约" class="input-sm form-control" type="text" ng-model="searchContract"/>
+            </div>
+        </div>
+        <div class="table-responsive m-b-lg">
+            <div ui-grid="contract.gridOptionsContract" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                 ui-grid-auto-resize></div>
+        </div>
+    </div>
+</div>
