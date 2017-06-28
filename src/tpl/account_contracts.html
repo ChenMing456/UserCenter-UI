@@ -1,34 +1,35 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">合约管理</h1>
 </div>
-<div class="wrapper-md" ng-controller="ContractCtrl as contracts">
+<div class="wrapper-md" ng-controller="ContractCtrl as contract">
     <div class="panel panel-default">
         <div class="row wrapper">
-            <div class="col-sm-3 m-b-xs">
-                <button type="submit" class="btn btn-sm btn-warning" ng-click="contract.filterContracts()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
-            </div>
             <div class="col-sm-6">
-                <div class="radio">
-                    <label class="i-checks">
-                        <input type="radio" name="filter_opt" value="1" checked="" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
-                        <i></i>
-                        待处理
-                    </label>
-                </div>
-                <div class="radio">
-                    <label class="i-checks">
-                        <input type="radio" name="filter_opt" value="2" ng-model="contract.filter_opt">
-                        <i></i>
-                        已处理
-                    </label>
-                </div>
-                <div class="radio">
-                    <label class="i-checks">
-                        <input type="radio" name="filter_opt" value="3" ng-model="contract.filter_opt">
-                        <i></i>
-                        全部
-                    </label>
-                </div>
+                <ul class="list-inline m-b-none">
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="1" checked="" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            待处理
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="2" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            已处理
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="3" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            全部
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
             </div>
             <div class="col-sm-3">
                 <input placeholder="查找合约" class="input-sm form-control" type="text" ng-model="searchContract"/>

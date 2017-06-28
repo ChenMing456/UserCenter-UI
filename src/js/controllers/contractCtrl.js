@@ -78,19 +78,19 @@ app.controller('ContractCtrl', ['$scope', 'uiGridConstants', 'i18nService', '$ht
         });
     };
 
-    // 首次加载
-    vm.getAllContracts();
-
     vm.filter_opt = 1;
     vm.filterContracts = function () {
-        if(vm.filter_opt === 1) {
+        if(+vm.filter_opt === 1) {
             vm.getUnfinishedContracts();
-        } else if(vm.filter_opt === 2) {
+        } else if(+vm.filter_opt === 2) {
             vm.getFinishedContracts();
-        } else if(vm.filter_opt === 3) {
+        } else if(+vm.filter_opt === 3) {
             vm.getAllContracts();
         }
     };
+
+    // 首次加载
+    vm.filterContracts();
 
     // 搜索
     $scope.$watch('searchContract', function (newVal, oldVal) {
