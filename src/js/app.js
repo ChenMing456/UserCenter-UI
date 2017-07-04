@@ -23,6 +23,8 @@ angular.module('app', [
     'oc.lazyLoad',
     'pascalprecht.translate',
 
+    'w5c.validator',
+
     'account.alarms',
     'account.apps',
     'account.contracts',

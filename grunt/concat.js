@@ -25,6 +25,7 @@ module.exports = {
             'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
 
             'bower_components/angular-ui-grid/ui-grid.min.js',
+            'bower_components/w5c-validator/w5cValidator.min.js',
 
             'src/js/*.js',
             'src/js/directives/*.js',
