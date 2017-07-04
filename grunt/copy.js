@@ -14,6 +14,7 @@ module.exports = {
             {expand: true, src: 'ui-grid.svg', cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/'},
             {expand: true, src: 'ui-grid.ttf', cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/'},
             {expand: true, src: 'ui-grid.woff',cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/'},
+            {expand: true, src: ['bower_components/**/*.js','bower_components/**/*.css'], dest:'appstore/'},
             {src: 'src/index.min.html', dest : 'appstore/index.html'}
         ]
     },
