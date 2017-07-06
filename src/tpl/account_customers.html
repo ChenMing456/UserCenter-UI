@@ -2,11 +2,11 @@
     <h1 class="m-n font-thin h3">客户管理</h1>
 </div>
 
-<div class="wrapper-md" ng-controller="CustomerCtrl as customers">
+<div class="wrapper-md" ng-controller="CustomerCtrl as customer">
     <div class="panel panel-default">
         <div class="row wrapper">
             <div class="col-sm-5 m-b-xs">
-                <button type="submit" class="btn btn-sm btn-warning" ng-click="customers.refreshGrid()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
+                <button type="submit" class="btn btn-sm btn-warning" ng-click="customer.refreshGrid()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-3">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="table-responsive m-b-lg">
-            <div ui-grid="customers.gridOptionsCustomer" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+            <div ui-grid="customer.gridOptionsCustomer" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
                  ui-grid-auto-resize></div>
         </div>
     </div>

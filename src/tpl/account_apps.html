@@ -1,33 +1,851 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">应用管理</h1>
 </div>
-<div class="wrapper-md" ng-controller="AppCtrl">
+<div class="wrapper-md" ng-controller="AppCtrl as app">
     <tabset>
         <tab heading="我的应用">
             <tab-heading>我的应用</tab-heading>
-            <div class="noborder bg-white panel panel-default" ng-show="$root.activeCalls===0">
-                <div class="bg-white bottom-border-only panel-body b-b b-light">
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-sm btn-info ng-pristine ng-untouched ng-valid" ng-model="createVersion" ng-click="createApp()"><i class="fa fa-plus"></i> 创建应用</button>
-                        <button type="submit" class="btn btn-sm btn-warning" ng-click="refreshApp()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
+            <div class="bg-white wrapper">
+                <div class="row row-sm">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top">
+                                    <span class="badge bg-info m-l-sm m-t-sm">04:10</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <input placeholder="查找应用" class="input-sm form-control ng-pristine ng-untouched ng-valid" type="text" ng-model="filter.filterVersion">
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top w-full">
+              <span class="pull-right m-t-n-xs m-r-sm text-white">
+                <i class="fa fa-bookmark i-lg"></i>
+              </span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top w-full">
+                                    <span class="pull-right m-t-sm m-r-sm badge bg-info">6</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top">
+                                    <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="bottom">
+                                    <span class="badge m-l-sm m-b-sm">MTV</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize ng-style="getTableHeight(myAppsGridOptions)"></div>
             </div>
-
         </tab>
         <tab heading="应用市场">
             <tab-heading>应用市场</tab-heading>
-            <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize></div>
+            <div class="bg-white wrapper">
+                <div class="">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control rounded">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--<div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>全部</li>
+                        <li>基础服务</li>
+                        <li>企业软件</li>
+                        <li>研发管理</li>
+                        <li>运维管理</li>
+                        <li>安全管理</li>
+                        <li>行业增值</li>
+                    </ul>
+                </div>-->
+                <div class="m-b m-t">
+                    <div class="btn-group btn-group-justified">
+                        <a href="" class="btn btn-success">全部</a>
+                        <a href="" class="btn btn-default">基础服务</a>
+                        <a href="" class="btn btn-default">研发管理</a>
+                        <a href="" class="btn btn-default">企业软件</a>
+                        <a href="" class="btn btn-default">运维管理</a>
+                        <a href="" class="btn btn-default">安全管理</a>
+                        <a href="" class="btn btn-default">行业增值</a>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top">
+                                    <span class="badge bg-info m-l-sm m-t-sm">04:10</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top w-full">
+              <span class="pull-right m-t-n-xs m-r-sm text-white">
+                <i class="fa fa-bookmark i-lg"></i>
+              </span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top w-full">
+                                    <span class="pull-right m-t-sm m-r-sm badge bg-info">6</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top">
+                                    <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="bottom">
+                                    <span class="badge m-l-sm m-b-sm">MTV</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </tab>
         <tab heading="已购买应用">
             <tab-heading>已购买应用</tab-heading>
-            <div ui-grid="myAppsGridOptions" ui-grid-resize-columns  ui-grid-move-columns ui-grid-pagination ui-grid-auto-resize></div>
+            <div class="bg-white wrapper">
+                <div class="row row-sm">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top">
+                                    <span class="badge bg-info m-l-sm m-t-sm">04:10</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top w-full">
+              <span class="pull-right m-t-n-xs m-r-sm text-white">
+                <i class="fa fa-bookmark i-lg"></i>
+              </span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="top w-full">
+                                    <span class="pull-right m-t-sm m-r-sm badge bg-info">6</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <div class="top">
+                                    <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="bottom">
+                                    <span class="badge m-l-sm m-b-sm">MTV</span>
+                                </div>
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
+                        <div class="item">
+                            <div class="pos-rlt">
+                                <div class="item-overlay bg-black-opacity r r-2x">
+                                    <div class="center text-center m-t-n w-full">
+                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                    </div>
+                                </div>
+                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                            </div>
+                            <div class="padder-v">
+                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </tab>
     </tabset>
 </div>

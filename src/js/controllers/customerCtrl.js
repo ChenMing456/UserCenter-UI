@@ -2,7 +2,7 @@
  * Created by Domoke on 2017/6/26.
  */
 'use strict';
-app.controller('CustomerCtrl', ['$scope', 'uiGridConstants', 'i18nService', '$http', function ($scope, uiGridConstants, i18nService, $http) {
+app.controller('CustomerCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
     var vm = this;

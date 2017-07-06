@@ -4,6 +4,9 @@
 'use strict';
 
 /* Controllers */
+app.controller('DashboardCtrl', ['$scope', function ($scope) {
+
+}]);
 
 app
 // Flot Chart controller

@@ -2,7 +2,7 @@
  * Created by Domoke on 2017/6/26.
  */
 'use strict';
-app.controller('ContractCtrl', ['$scope', 'uiGridConstants', 'i18nService', '$http', function ($scope, uiGridConstants, i18nService, $http) {
+app.controller('ContractCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
     var vm = this;
@@ -96,7 +96,7 @@ app.controller('ContractCtrl', ['$scope', 'uiGridConstants', 'i18nService', '$ht
     $scope.$watch('searchContract', function (newVal, oldVal) {
         if (newVal === oldVal)
             return;
-        vm.gridOptionsCustomer.data = vm.customers.filter(function (data) {
+        vm.gridOptionsContract.data = vm.contracts.filter(function (data) {
             if (data.name) {
                 if (data.name.toLowerCase().indexOf($scope.searchContract.toLowerCase()) > -1) {
                     return true;

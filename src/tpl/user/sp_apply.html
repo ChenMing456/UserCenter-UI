@@ -1,0 +1,70 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">成为服务提供商申请</h1>
+</div>
+<div class="wrapper-md">
+    <div class="alert alert-danger">
+        <span>此处为审核失败信息</span>
+    </div>
+    <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false, step4:false}">
+        <tab heading="企业信息" active="steps.step1" select="steps.percent=0">
+            <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+            <h4>企业产品及介绍</h4>
+            <p class="m-b">完整的公司及产品介绍有助于我们更好的了解贵公司，加快审核进度</p>
+            <form name="step1" class="form-validation">
+                <p>公司全称<span class="is-required">*</span></p>
+                <input type="text" name="company_name" class="form-control" ng-model="company_name" required>
+                <p class="m-t">公司网站<span class="is-required">*</span></p>
+                <input type="text" name="company_website" placeholder="http://" class="form-control"
+                       ng-model="company_website" required
+                       ng-change="step1.company_website.$valid ? (steps.percent=20) : (steps.percent=10)">
+                <p class="m-t">公司介绍<span class="is-required">*</span></p>
+                <textarea name="company_introduction" class="form-control" ng-model="company_introduction"
+                          required></textarea>
+                <p class="m-t">办公地址<span class="is-required">*</span></p>
+                <input type="text" name="company_address" class="form-control" ng-model="company_address" required/>
+                <p class="m-t">联系人<span class="is-required">*</span></p>
+                <input type="text" name="linkman" class="form-control" ng-model="linkman" required/>
+                <p class="m-t">联系电话<span class="is-required">*</span></p>
+                <input type="text" name="contact_number" class="form-control" ng-model="contact_number" required/>
+
+                <div class="m-t m-b">
+                    <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"
+                            ng-click="steps.step2=true">下一步
+                    </button>
+                </div>
+            </form>
+        </tab>
+        <tab heading="企业资质" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+            <form name="step2" class="form-validation">
+                <p class="m-b">Continue the next step</p>
+                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+                <p>Your age:</p>
+                <input type="number" name="age" class="form-control" ng-model="age" required>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">上一步</button>
+                    <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded"
+                            ng-click="steps.step3=true">下一步
+                    </button>
+                </div>
+            </form>
+        </tab>
+        <tab heading="对公账号" disabled="step2.$invalid" active="steps.step3" select="steps.percent=60">
+            <p class="m-b">Congraduations! You got the last step.</p>
+            <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+            <p>Just one click to finish it.</p>
+            <div class="m-t m-b">
+                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
+                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100">下一步</button>
+            </div>
+        </tab>
+        <tab heading="确认提交" disabled="step3.$invalid" active="steps.step4" select="steps.percent=100">
+            <p class="m-b">Congraduations! You got the last step.</p>
+            <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+            <p>Just one click to finish it.</p>
+            <div class="m-t m-b">
+                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
+                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100">确认提交</button>
+            </div>
+        </tab>
+    </tabset>
+</div>

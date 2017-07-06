@@ -1,0 +1,21 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">充值记录</h1>
+</div>
+<div class="wrapper-md" ng-controller="RechargeOrderCtrl as order">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="col-sm-5 m-b-xs">
+                <a class="btn btn-sm btn-success" ui-sref="account.recharge"><i class="fa fa-plus"></i>&nbsp;立即充值</a>
+                <button type="button" class="btn btn-sm btn-warning" ng-click="order.refreshGrid()"><i class="fa fa-refresh"></i>&nbsp;刷新</button>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                <input placeholder="查找充值订单" class="input-sm form-control" type="text" ng-model="searchOrder"/>
+            </div>
+        </div>
+        <div class="table-responsive m-b-lg">
+            <div ui-grid="order.gridOptionsRechargeOrder" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                 ui-grid-auto-resize></div>
+        </div>
+    </div>
+</div>

@@ -103,13 +103,23 @@ angular.module('app')
                                 }]
                         }
                     })
-                    .state('account.recharge_logs', {
-                        url: '/recharge_logs',
-                        templateUrl: 'tpl/account_recharge_logs.html',
+                    .state('account.recharge_orders', {
+                        url: '/recharge',
+                        templateUrl: 'tpl/account_recharge_orders.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/rechargeLogCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/rechargeOrderCtrl.js']);
+                                }]
+                        }
+                    })
+                    .state('account.recharge', {
+                        url: '/recharge',
+                        templateUrl: 'tpl/recharge/recharge.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['js/controllers/rechargeCtrl.js']);
                                 }]
                         }
                     })
