@@ -9,11 +9,11 @@
         "updated_at": null
       },
       "entity": {
-        "name": "资质申请合约",
+        "name": "新战略合作合约",
         "type": "1",
         "template": "http://xxx.com/xxx.doc",
         "attachment": "http://xxx.com/xxx.pdf",
-        "status": "10"
+        "status": "20"
       }
     }
   ]

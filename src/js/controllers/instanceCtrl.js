@@ -5,6 +5,10 @@
 app.controller('InstanceCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
+    var optCellTemplate = '<div class="btn-group">' +
+        '<a ui-sref="account.instance.details({instance_guid:row.entity.guid})" class="btn btn-sm btn-info" ><i class="fa fa-pencil-square-o fa-fw"></i>查看详情</a>' +
+        '</div>';
+
     var vm = this;
     vm.gridOptionsInstance = {
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
@@ -14,9 +18,7 @@ app.controller('InstanceCtrl', ['$scope', 'i18nService', '$http', function ($sco
         columnDefs: [
             { name: 'user_name', enableFiltering: false, displayName: '客户账号' },
             { name: 'app_name', enableFiltering: false, displayName: '应用名称' },
-            { name: 'app_version', enableFiltering: false, displayName: '应用版本' },
             { name: 'component_name', enableFiltering: false, displayName: '组件名称' },
-            { name: 'component_version', enableFiltering: false, displayName: '组件版本' },
             { name: 'host', enableFiltering: false, displayName: '主机' },
             { name: 'port', enableFiltering: false, displayName: '端口' },
             { name: 'cpu', enableFiltering: false, displayName: 'CPU使用率' },
@@ -25,7 +27,8 @@ app.controller('InstanceCtrl', ['$scope', 'i18nService', '$http', function ($sco
             { name: 'quota_memory', enableFiltering: false, displayName: '内存配额' },
             { name: 'quota_disk', enableFiltering: false, displayName: '磁盘配额' },
             { name: 'run_time', enableFiltering: false, displayName: '运行时间' },
-            { name: 'status', enableFiltering: false, displayName: '运行状态' }
+            { name: 'status', enableFiltering: false, displayName: '运行状态' },
+            { name: 'guid', enableFiltering: false, displayName: '操作' , cellTemplate:optCellTemplate},
         ],
         data: []
     };

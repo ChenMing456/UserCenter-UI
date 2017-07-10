@@ -2,27 +2,35 @@
     <h1 class="m-n font-thin h3">应用管理</h1>
 </div>
 <div class="wrapper-md" ng-controller="AppCtrl as app">
-    <tabset>
+    <tabset class="tab-container">
         <tab heading="我的应用">
             <tab-heading>我的应用</tab-heading>
-            <div class="bg-white wrapper">
+            <div class="wrapper">
+                <div class="alert alert-warning m-n">
+                    <span>您还未成为服务供应商，无法创建应用，马上<a ui-sref="account.sp_apply">申请成为服务供应商</a></span>
+                </div>
+                <div class="row wrapper">
+                    <a ui-sref="account.app.create" class="btn btn-success"><i class="fa fa-plus"></i> 创建应用</a>
+                </div>
                 <div class="row row-sm">
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
                         <div class="item">
                             <div class="pos-rlt">
-                                <div class="top">
-                                    <span class="badge bg-info m-l-sm m-t-sm">04:10</span>
-                                </div>
-                                <div class="item-overlay bg-black-opacity r r-2x r r-2x">
-                                    <div class="center text-center m-t-n w-full">
-                                        <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
+                                <a ui-sref="account.app.details">
+                                    <div class="top">
+                                        <span class="badge bg-warning m-l-sm m-t-sm">待发布</span>
                                     </div>
-                                </div>
-                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                                    <div class="item-overlay bg-black-opacity r r-2x r r-2x">
+                                        <div class="center text-center m-t-n w-full">
+                                            <i class="fa fa-2x fa-play-circle-o text-white"></i>
+                                        </div>
+                                    </div>
+                                    <img src="img/b1.jpg" alt="" class="img-full r r-2x">
+                                </a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">应用名称</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">v1.0.2</a>
                             </div>
                         </div>
                     </div>
@@ -34,11 +42,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -51,11 +59,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Allen JH</a>
                             </div>
                         </div>
                     </div>
@@ -72,11 +80,11 @@
                 <i class="fa fa-bookmark i-lg"></i>
               </span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
                             </div>
                         </div>
                     </div>
@@ -89,11 +97,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
                             </div>
                         </div>
                     </div>
@@ -108,11 +116,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
                             </div>
                         </div>
                     </div>
@@ -125,11 +133,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Ligula H</a>
                             </div>
                         </div>
                     </div>
@@ -141,11 +149,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">James East</a>
                             </div>
                         </div>
                     </div>
@@ -161,11 +169,11 @@
                                 <div class="top">
                                     <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -177,11 +185,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Chris Fox</a>
                             </div>
                         </div>
                     </div>
@@ -194,11 +202,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -210,11 +218,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -230,11 +238,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -246,11 +254,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -263,11 +271,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -276,7 +284,7 @@
         </tab>
         <tab heading="应用市场">
             <tab-heading>应用市场</tab-heading>
-            <div class="bg-white wrapper">
+            <div class=" wrapper">
                 <div class="">
                     <form class="form-horizontal">
                         <div class="form-group">
@@ -320,11 +328,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Tempered Song</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Miaow</a>
                             </div>
                         </div>
                     </div>
@@ -336,11 +344,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -353,11 +361,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Allen JH</a>
                             </div>
                         </div>
                     </div>
@@ -374,11 +382,11 @@
                 <i class="fa fa-bookmark i-lg"></i>
               </span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
                             </div>
                         </div>
                     </div>
@@ -391,11 +399,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
                             </div>
                         </div>
                     </div>
@@ -410,11 +418,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
                             </div>
                         </div>
                     </div>
@@ -427,11 +435,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Ligula H</a>
                             </div>
                         </div>
                     </div>
@@ -443,11 +451,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">James East</a>
                             </div>
                         </div>
                     </div>
@@ -463,11 +471,11 @@
                                 <div class="top">
                                     <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -479,11 +487,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Chris Fox</a>
                             </div>
                         </div>
                     </div>
@@ -496,11 +504,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -512,11 +520,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -532,11 +540,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -548,11 +556,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -565,11 +573,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -578,7 +586,7 @@
         </tab>
         <tab heading="已购买应用">
             <tab-heading>已购买应用</tab-heading>
-            <div class="bg-white wrapper">
+            <div class="wrapper">
                 <div class="row row-sm">
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2-4">
                         <div class="item">
@@ -591,11 +599,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b1.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tempered Song</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Miaow</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Tempered Song</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Miaow</a>
                             </div>
                         </div>
                     </div>
@@ -607,11 +615,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b2.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -624,11 +632,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b3.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Allen JH</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Morbi id neque quam liquam sollicitudin</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Allen JH</a>
                             </div>
                         </div>
                     </div>
@@ -645,11 +653,11 @@
                 <i class="fa fa-bookmark i-lg"></i>
               </span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b4.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Amanda Conlan</a>
                             </div>
                         </div>
                     </div>
@@ -662,11 +670,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b5.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Fermentum diam</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Fermentum diam</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Nisa Colen</a>
                             </div>
                         </div>
                     </div>
@@ -681,11 +689,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b6.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Habitant</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Habitant</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Dan Doorack</a>
                             </div>
                         </div>
                     </div>
@@ -698,11 +706,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b7.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vivamus vel tincidunt libero</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Ligula H</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vivamus vel tincidunt libero</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Ligula H</a>
                             </div>
                         </div>
                     </div>
@@ -714,11 +722,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b8.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenati</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">James East</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenati</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">James East</a>
                             </div>
                         </div>
                     </div>
@@ -734,11 +742,11 @@
                                 <div class="top">
                                     <span class="badge bg-warning m-l-sm m-t-sm">03:10</span>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b9.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Lementum ligula vitae</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Lementum ligula vitae</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Lauren Taylor</a>
                             </div>
                         </div>
                     </div>
@@ -750,11 +758,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b10.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Egestas dui nec fermentum </a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Chris Fox</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Egestas dui nec fermentum </a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Chris Fox</a>
                             </div>
                         </div>
                     </div>
@@ -767,11 +775,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b11.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -783,11 +791,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b12.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -803,11 +811,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b13.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>
@@ -819,11 +827,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b14.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Vestibulum ullamcorper</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Vestibulum ullamcorper</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">MM &amp; DD</a>
                             </div>
                         </div>
                     </div>
@@ -836,11 +844,11 @@
                                         <a><i class="fa fa-2x fa-play-circle-o text-white"></i></a>
                                     </div>
                                 </div>
-                                <a ui-sref="music.detail"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
+                                <a ui-sref="account.app.details"><img src="img/b15.jpg" alt="" class="img-full r r-2x"></a>
                             </div>
                             <div class="padder-v">
-                                <a ui-sref="music.detail" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
-                                <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted">Jack Jason</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis">Aliquam sollicitudin venenatis ipsum</a>
+                                <a ui-sref="account.app.details" class="text-ellipsis text-xs text-muted">Jack Jason</a>
                             </div>
                         </div>
                     </div>

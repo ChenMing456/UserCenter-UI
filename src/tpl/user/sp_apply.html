@@ -5,8 +5,12 @@
     <div class="alert alert-danger">
         <span>此处为审核失败信息</span>
     </div>
-    <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false, step4:false}">
+    <div id="sp_apply_finish" class="alert alert-success" >
+        <span>您的申请已提交，三个工作内会给您答复</span>
+    </div>
+    <tabset ng-hide="is_finish" class="tab-container" ng-init="steps={percent:0, step1:true, step2:false, step3:false, step4:false}">
         <tab heading="企业信息" active="steps.step1" select="steps.percent=0">
+            <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>企业产品及介绍</h4>
             <p class="m-b">完整的公司及产品介绍有助于我们更好的了解贵公司，加快审核进度</p>
@@ -35,11 +39,15 @@
             </form>
         </tab>
         <tab heading="企业资质" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+            <p class="m-b">完成度：{{steps.percent}}%</p>
+            <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+            <h4>企业资质信息</h4>
+            <p class="m-b">企业资质信息错误可能导致申请失败，请务必确保填写的企业资质信息无误</p>
             <form name="step2" class="form-validation">
-                <p class="m-b">Continue the next step</p>
-                <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
-                <p>Your age:</p>
-                <input type="number" name="age" class="form-control" ng-model="age" required>
+                <p class="m-t">企业注册名称<span class="is-required">*</span></p>
+                <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" required>
+                <p class="m-t">工商营业执照注册号<span class="is-required">*</span></p>
+                <input type="text" name="business_license_number" class="form-control" ng-model="business_license_number" required>
                 <div class="m-t m-b">
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">上一步</button>
                     <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded"
@@ -49,21 +57,32 @@
             </form>
         </tab>
         <tab heading="对公账号" disabled="step2.$invalid" active="steps.step3" select="steps.percent=60">
-            <p class="m-b">Congraduations! You got the last step.</p>
+            <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
-            <p>Just one click to finish it.</p>
-            <div class="m-t m-b">
-                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
-                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100">下一步</button>
-            </div>
+            <h4>对公账号资料</h4>
+            <p class="m-b">TrueCenter会通过此账号与贵公司进行各种财务结算</p>
+            <form name="step3" class="form-validation">
+                <p class="m-t">开户银行<span class="is-required">*</span></p>
+                <input type="text" name="corporate_account_bank" class="form-control" ng-model="corporate_account_bank" required>
+                <p class="m-t">开户名<span class="is-required">*</span></p>
+                <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" required>
+                <p class="m-t">对公账号<span class="is-required">*</span></p>
+                <input type="text" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required>
+                <div class="m-t m-b">
+                    <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
+                    <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100;steps.step4=true;">下一步</button>
+                </div>
+            </form>
         </tab>
         <tab heading="确认提交" disabled="step3.$invalid" active="steps.step4" select="steps.percent=100">
-            <p class="m-b">Congraduations! You got the last step.</p>
+            <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
-            <p>Just one click to finish it.</p>
+            <div class="alert alert-warning">
+                <span>请确认[企业信息]、[企业资质]和[对公账户]信息准确无误，提交后将不可更改</span>
+            </div>
             <div class="m-t m-b">
-                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
-                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100">确认提交</button>
+                <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">上一步</button>
+                <button type="button" class="btn btn-default btn-rounded" >确认提交</button>
             </div>
         </tab>
     </tabset>

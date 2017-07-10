@@ -20,12 +20,19 @@
                         <label class="i-checks">
                             <input type="radio" name="filter_opt" value="2" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
                             <i></i>
-                            已处理
+                            待审核
                         </label>
                     </li>
                     <li class="radio m-b-none">
                         <label class="i-checks">
                             <input type="radio" name="filter_opt" value="3" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            已完成
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="4" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
                             <i></i>
                             全部
                         </label>

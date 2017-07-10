@@ -5,6 +5,11 @@
 app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
+    var optCellTemplate = '<div class="btn-group">' +
+        '<button type="button" class="btn btn-sm btn-info" ng-click="grid.appScope.readNotice(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>查看</button>' +
+        '<button type="button" class="btn btn-sm btn-danger" ng-click="grid.appScope.deleteNotice(row.entity)"><i class="fa fa-trash-o fa-fw"></i>删除</button>' +
+        '</div>';
+
     var vm = this;
     vm.gridOptionsNotice = {
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
@@ -14,7 +19,8 @@ app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope
         columnDefs: [
             { name: 'title', enableFiltering: false, displayName: '标题' },
             { name: 'create_time', enableFiltering: false, displayName: '创建时间' },
-            { name: '', enableFiltering: false, displayName: '是否已读' },
+            { name: 'is_read', enableFiltering: false, displayName: '是否已读' },
+            { name: 'guid', enableFiltering:false , displayName: '操作', cellTemplate:optCellTemplate}
         ],
         data: []
     };
@@ -28,7 +34,7 @@ app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope
                 vm.notices.push({
                     guid:data.resources[i].metadata.guid,
                     create_time:data.resources[i].metadata.created_at,
-                    title:data.resources[i].entity.nick_name,
+                    title:data.resources[i].entity.title,
                     is_read :data.resources[i].entity.is_read
                 });
             }
