@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h3 class="modal-title">充值</h3>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" name="myForm">
+        <div class="form-group">
+            <label class="col-lg-3 control-label">应用名称：</label>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" name="spacename" ng-model="app.name" placeholder="应用名称,必填" required>
+                <span class="glyphicon glyphicon-ok form-control-feedback"
+                      ng-show="myForm.spacename.$dirty && myForm.spacename.$valid"></span>
+                <p class="notice-m">1到20个字符，支持汉字、数字、字母及下划线；建议使用中文命名方便管理（例：云盘应用）；</p>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" ng-click="" ng-disabled="myForm.$invalid">确定</button>
+    <button class="btn btn-default" ng-click="">取消</button>
+</div>

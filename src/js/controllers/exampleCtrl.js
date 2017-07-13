@@ -3,6 +3,6 @@
  */
 "use strict";
 
-app.controller('FormValidCtrl', ['$scope', function ($scope) {
+app.controller('FormValidCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
 
 }]);

@@ -1,0 +1,46 @@
+{
+  "total_results": 1,
+  "total_pages": 1,
+  "resources": [
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "name": "v1.0.2",
+        "app_guid": "",
+        "intro": "版本介绍",
+        "confd_text": "编排文件内容",
+        "selling_price":100,
+        "sold_count":198,
+        "status": 30
+      },
+      "app": {
+        "guid":"f4f73c73-b5b7-482c-9ca7-c0d906e86084",
+        "name":"应用名称"
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "name": "v1.0.1",
+        "app_guid": "",
+        "intro": "版本介绍",
+        "confd_text": "编排文件内容",
+        "selling_price":100,
+        "sold_count":0,
+        "status": 10
+      },
+      "app": {
+        "guid":"f4f73c73-b5b7-482c-9ca7-c0d906e86084",
+        "name":"应用名称"
+      }
+    }
+  ]
+}
