@@ -10,7 +10,7 @@ app.controller('AppDetailsCtrl', ['$scope', 'i18nService', '$http', function ($s
 app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<button type="button" class="btn btn-sm btn-success" ng-click="grid.appScope.downloadComponent(row.entity)"><i class="fa fa-download fa-fw"></i>下载</button>' +
         '<button type="button" class="btn btn-sm btn-danger" ng-click="grid.appScope.deleteComponent(row.entity)"><i class="fa fa-trash-o fa-fw"></i>删除</button>' +
         '</div>';
@@ -20,7 +20,7 @@ app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function (
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'name', enableFiltering: false, displayName: '名称' },
             { name: 'version', enableFiltering: false, displayName: '版本' },
@@ -78,7 +78,7 @@ app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function (
 app.controller('AppVersionCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<button type="button" class="btn btn-sm btn-success" ng-click="grid.appScope.soldOn(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>发布</button>' +
         '<button type="button" class="btn btn-sm btn-warning" ng-click="grid.appScope.soldOut(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>下架</button>' +
         '<button type="button" class="btn btn-sm btn-default" ng-click="grid.appScope.editVersion(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</button>' +
@@ -90,7 +90,7 @@ app.controller('AppVersionCtrl', ['$scope', 'i18nService', '$http', function ($s
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'name', enableFiltering: false, displayName: '版本号' },
             { name: 'create_time', enableFiltering: false, displayName: '创建时间' },

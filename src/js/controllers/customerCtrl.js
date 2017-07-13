@@ -10,7 +10,7 @@ app.controller('CustomerCtrl', ['$scope', 'i18nService', '$http', function ($sco
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'nick_name', enableFiltering: false, displayName: '昵称' },
             { name: 'order_at', enableFiltering: false, displayName: '下单时间' },

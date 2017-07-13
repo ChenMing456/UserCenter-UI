@@ -5,7 +5,7 @@
 app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<button type="button" class="btn btn-sm btn-info" ng-click="grid.appScope.readNotice(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>查看</button>' +
         '<button type="button" class="btn btn-sm btn-danger" ng-click="grid.appScope.deleteNotice(row.entity)"><i class="fa fa-trash-o fa-fw"></i>删除</button>' +
         '</div>';
@@ -15,7 +15,7 @@ app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'title', enableFiltering: false, displayName: '标题' },
             { name: 'create_time', enableFiltering: false, displayName: '创建时间' },

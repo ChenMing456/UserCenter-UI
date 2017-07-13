@@ -5,7 +5,7 @@
 app.controller('InstanceCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<a ui-sref="account.instance.details({instance_guid:row.entity.guid})" class="btn btn-sm btn-info" ><i class="fa fa-pencil-square-o fa-fw"></i>查看详情</a>' +
         '</div>';
 
@@ -14,7 +14,7 @@ app.controller('InstanceCtrl', ['$scope', 'i18nService', '$http', function ($sco
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'user_name', enableFiltering: false, displayName: '客户账号' },
             { name: 'app_name', enableFiltering: false, displayName: '应用名称' },

@@ -11,7 +11,7 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'money', enableFiltering: false, displayName: '充值金额' },
             { name: 'pay_type', enableFiltering: false, displayName: '支付类型' },

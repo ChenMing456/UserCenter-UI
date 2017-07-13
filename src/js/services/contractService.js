@@ -6,7 +6,7 @@
 angular.module('account.contracts', [])
     .factory('Contracts', function ($resource) {
 
-        return $resource('/contracts/:guid', {guid: '@guid'});
+        return $resource('/contracts/:guid/:', {guid: '@guid'});
     })
     .service('ContractService', function ($http) {
 

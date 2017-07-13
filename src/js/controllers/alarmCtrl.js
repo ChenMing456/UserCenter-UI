@@ -10,7 +10,7 @@ app.controller('AlarmCtrl', ['$scope', 'i18nService', '$http', function ($scope,
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'type', enableFiltering: false, displayName: '类型' },
             { name: 'description', enableFiltering: false, displayName: '描述' },

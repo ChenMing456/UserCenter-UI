@@ -5,7 +5,7 @@
 app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<button type="button" class="btn btn-sm btn-info" ng-click="grid.appScope.editResource(row.entity)"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</button>' +
         '<button type="button" class="btn btn-sm btn-danger" ng-click="grid.appScope.deleteResource(row.entity)"><i class="fa fa-trash-o fa-fw"></i>删除</button>' +
         '</div>';
@@ -15,7 +15,7 @@ app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http', function ($sco
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'type', enableFiltering: false, displayName: '类型' },
             { name: 'name', enableFiltering: false, displayName: '名称' },

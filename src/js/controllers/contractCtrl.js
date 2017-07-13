@@ -5,19 +5,19 @@
 app.controller('ContractCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
     i18nService.setCurrentLang('zh-cn');
 
-    var optCellTemplate = '<div class="btn-group">' +
+    var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
         '<a ui-sref="account.contract.details({guid:row.entity.guid})" class="btn btn-sm btn-default"><i class="fa fa-pencil-square-o fa-fw"></i>查看</a>' +
         '<a ng-show="row.entity.status === 10" ui-sref="account.contract.edit({guid:row.entity.guid})" class="btn btn-sm btn-info"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</a>' +
         '</div>';
 
-    var nameCellTemplate = '<div><a ui-sref="account.contract.details({guid:row.entity.guid})">{{row.entity.name}}</a></div>';
+    var nameCellTemplate = '<div class="ui-grid-cell-contents"><a ui-sref="account.contract.details({guid:row.entity.guid})">{{row.entity.name}}</a></div>';
 
     var vm = this;
     vm.gridOptionsContract = {
         enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
         paginationPageSize: 10,
         paginationPageSizes: [10, 20, 50, 100],
-        rowHeight: 36,
+        rowHeight: 46,
         columnDefs: [
             { name: 'name', enableFiltering: false, displayName: '合约名称' , cellTemplate:nameCellTemplate},
             { name: 'type', enableFiltering: false, displayName: '合约类型' },
