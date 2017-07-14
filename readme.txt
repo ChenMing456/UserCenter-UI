@@ -22,5 +22,5 @@ go to the app root
 >npm start
 
 
-> grunt build:angular
-to build the 'angular' folder
+> grunt build:appstore
+to build the 'appstore' folder
