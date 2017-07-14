@@ -1,0 +1,21 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">资源管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="ResourceCtrl as resource">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="col-sm-5 m-b-xs">
+                <a class="btn btn-sm btn-info" ui-sref="account.resource.add" ><i class="fa fa-plus fa-fw"></i>新增资源</a>
+                <button type="button" class="btn btn-sm btn-warning" ng-click="resource.refreshGrid()"><i class="fa fa-refresh"></i>刷新</button>
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                <input placeholder="查找资源" class="input-sm form-control" type="text" ng-model="searchResource"/>
+            </div>
+        </div>
+        <div class="table-responsive m-b-lg">
+            <div ui-grid="resource.gridOptionsResource" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                 ui-grid-auto-resize></div>
+        </div>
+    </div>
+</div>

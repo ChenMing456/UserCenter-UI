@@ -1,0 +1,53 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">合约管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="ContractCtrl as contract">
+    <div class="alert alert-danger">
+        <span>此处为审核失败信息</span>
+    </div>
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="col-sm-6">
+                <ul class="list-inline m-b-none">
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="1" checked="" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            待处理
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="2" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            待审核
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="3" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            已完成
+                        </label>
+                    </li>
+                    <li class="radio m-b-none">
+                        <label class="i-checks">
+                            <input type="radio" name="filter_opt" value="4" ng-model="contract.filter_opt" ng-change="contract.filterContracts()">
+                            <i></i>
+                            全部
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <input placeholder="查找合约" class="input-sm form-control" type="text" ng-model="searchContract"/>
+            </div>
+        </div>
+        <div class="table-responsive m-b-lg">
+            <div ui-grid="contract.gridOptionsContract" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                 ui-grid-auto-resize></div>
+        </div>
+    </div>
+</div>

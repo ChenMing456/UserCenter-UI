@@ -1,0 +1,42 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">账户充值</h1>
+</div>
+<div class="wrapper-md" ng-controller="RechargeCtrl as recharge">
+    <div class="row">
+      <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">账户余额：￥3000</div>
+                <div class="panel-body">
+                    <form class="bs-example form-horizontal ng-pristine ng-valid">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">充值金额</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" placeholder="输入充值金额">
+                                <span class="help-block m-b-none">输入1~99999999的整数</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">支付金额</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">100</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">到账金额</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">100</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-sm btn-info center-block">立即充值</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+          <div class="col-sm-2"></div>
+    </div>
+</div>

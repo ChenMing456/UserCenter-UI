@@ -1,0 +1,37 @@
+{
+  "total_results": 1,
+  "total_pages": 1,
+  "resources": [
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "title": "通知标题",
+        "is_read":2
+      }
+    },{
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "title": "重大通知",
+        "is_read":2
+      }
+    },{
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "title": "新版本要发布了",
+        "is_read":2
+      }
+    }
+  ]
+}

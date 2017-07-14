@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-ng-app="app">
+<head>
+  <meta charset="utf-8" />
+  <title>TrueCenter应用交付中心</title>
+  <meta name="description" content="应用交付中心" />
+  <meta name="keywords" content="应用, 交付, 云平台, TruePaaS, AWS, 阿里云"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="css/app.min.css" type="text/css" />
+</head>
+<body ng-controller="AppCtrl">
+  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+  <!-- jQuery -->
+  <script src="js/app.min.js"></script>
+  <!-- Lazy loading -->
+</body>
+</html>
