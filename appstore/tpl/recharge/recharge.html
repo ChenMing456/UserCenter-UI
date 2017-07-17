@@ -1,42 +1,125 @@
 <div class="bg-light lter b-b wrapper-md">
-    <h1 class="m-n font-thin h3">账户充值</h1>
+  <h1 class="m-n font-thin h3">账户充值</h1>
 </div>
 <div class="wrapper-md" ng-controller="RechargeCtrl as recharge">
-    <div class="row">
-      <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div class="panel panel-default">
-                <div class="panel-heading font-bold">账户余额：￥3000</div>
-                <div class="panel-body">
-                    <form class="bs-example form-horizontal ng-pristine ng-valid">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">充值金额</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" placeholder="输入充值金额">
-                                <span class="help-block m-b-none">输入1~99999999的整数</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">支付金额</label>
-                            <div class="col-sm-10">
-                                <p class="form-control-static">100</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">到账金额</label>
-                            <div class="col-sm-10">
-                                <p class="form-control-static">100</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-sm btn-info center-block">立即充值</button>
-                            </div>
-                        </div>
-                    </form>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading font-bold">账户余额：￥3000</div>
+        <div class="panel-body">
+          <!-- 表单开始 -->
+          <form class="bs-example form-horizontal ng-pristine ng-valid">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">充值金额</label>
+              <div class="col-sm-5">
+                <div class="m-b-sm">
+                  <!-- 不同充值金额的按钮 -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default m-r-sm" ng-class={'btn-success':recharge.buttonMoney==100} ng-click='recharge.showActiveBtn(100)'>100</button>
+                    <button type="button" class="btn btn-default m-r-sm" ng-class={'btn-success':recharge.buttonMoney==500} ng-click='recharge.showActiveBtn(500)'>500</button>
+                    <button type="button" class="btn btn-default m-r-sm" ng-class={'btn-success':recharge.buttonMoney==1000} ng-click='recharge.showActiveBtn(1000)'>1000</button>
+                    <button type="button" class="btn btn-default m-r-sm" ng-class={'btn-success':recharge.buttonMoney==3000} ng-click='recharge.showActiveBtn(3000)' >3000</button>
+                    <button type="button" class="btn btn-default m-r-sm" ng-class={'btn-success':recharge.buttonMoney==10000} ng-click='recharge.showActiveBtn(10000)' >10000</button>
+                  </div>
                 </div>
+              </div>
+              <!-- 输入框输入任意金额 -->
+              <div class="col-md-2">
+                <input class="form-control" placeholder="其他金额" type="text" ng-model='recharge.customedMoney'
+                ng-change='recharge.inputChange()'>
+              </div>
+              <!-- 图标提示成功还是超出预设值 -->
+              <div class="col-sm-3">
+                <label class="control-label m-l-n-md m-r-sm">元</label>
+                <i class="fa icon-check bg-success rounded" ng-show='recharge.showSuccess'></i>
+                <label class="control-label" ng-show='recharge.showError'>
+                  <i class="fa icon-close  bg-warning rounded" >
+                  </i>
+                  <span>请输入1-100000的整数</span>
+                </label>
+              </div>
             </div>
+            <!-- 显示应该支付的金额 -->
+            <div class="form-group">
+              <label class="col-sm-2 control-label">支付金额</label>
+              <div class="col-sm-10">
+                <p class="form-control-static">{{recharge.customedMoney||recharge.buttonMoney}}</p>
+              </div>
+            </div>
+            <!-- 显示支付的方式 -->
+            <div class="form-group">
+              <label class="col-sm-2 control-label">支付方式</label>
+              <div class="col-sm-10">
+                <div class="radio col-sm-2" style="background: url('./img/weixin.jpg') no-repeat 70% -60%;">
+                  <label class="i-checks">
+                    <input name="a" value="1微信支付" type="radio" ng-model='recharge.pay_type' ng-checked='true'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/zhifubao.jpg') no-repeat 70% -60%;">
+                  <label class="i-checks">
+                    <input name="a" value="2支付宝支付" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/gonshang.jpg') no-repeat 70% -60%;">
+                  <label class="i-checks">
+                    <input name="a" value="3工商银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/zhaoshang.jpg') no-repeat 70% -60%;">
+                  <label class="i-checks">
+                    <input name="a" value="4招商银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/zhongguo.jpg') no-repeat 70% -60%;">
+                  <label class="i-checks">
+                    <input name="a" value="5中国银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+              </div>
+
+              <label class="col-sm-2 control-label"></label>
+              <div class="col-sm-10">
+                <div class="radio col-sm-2" style="background: url('./img/jianshe.jpg') no-repeat 70% -80%;">
+                  <label class="i-checks">
+                    <input name="a" value="6建设银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/nongye.jpg') no-repeat 70% -80%;">
+                  <label class="i-checks">
+                    <input name="a" value="7农业银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+                <div class="radio col-sm-2" style="background: url('./img/youzheng.jpg') no-repeat 70% -80%;">
+                  <label class="i-checks">
+                    <input name="a" value="8邮政银行" type="radio" ng-model='recharge.pay_type'>
+                    <i></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- 显示到账的金额 -->
+            <div class="form-group">
+              <label class="col-sm-2 control-label">到账金额</label>
+              <div class="col-sm-10">
+                <p class="form-control-static">{{recharge.customedMoney||recharge.buttonMoney}}</p>
+              </div>
+            </div>
+            <!-- 立即充值的按钮 -->
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-sm btn-info center-block" ng-disabled='recharge.showAbledButton' ng-click='recharge.ImmediateRecharge()'>立即充值</button>
+              </div>
+            </div>
+          </form>
+          <!-- 表单结束 -->
         </div>
-          <div class="col-sm-2"></div>
+      </div>
     </div>
-</div>
+  </div>

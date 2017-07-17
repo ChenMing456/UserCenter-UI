@@ -16,7 +16,6 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
       return -1;
     }
   };
-  // 增加了金额的自定义排序方法
   vm.gridOptionsRechargeOrder = {
     enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
     paginationPageSize: 10,
@@ -31,8 +30,7 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
       {
         name: 'pay_type',
         enableFiltering: false,
-        displayName: '支付类型',
-        enableSorting: false
+        displayName: '支付类型'
       },
       {
         name: 'pay_money',
@@ -48,8 +46,7 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
       {
         name: 'status',
         enableFiltering: false,
-        displayName: '支付状态',
-        enableSorting: false
+        displayName: '支付状态'
       }
     ],
     data: []
@@ -71,7 +68,6 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
         });
       }
       vm.gridOptionsRechargeOrder.data = vm.rechargeOrders;
-      console.log(vm.rechargeOrders[0].money);
     });
   };
 
@@ -82,7 +78,7 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
   vm.refreshGrid = function() {
     getRechargeOrders();
   };
-  // 根据日期进行查询筛选
+  // 根据日期起始进行查询筛选
   vm.searchOrderStart = '';
   vm.searchOrderEnd = '';
   vm.findOrderResult = function() {
@@ -120,7 +116,6 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
   vm.openEnd = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
-
     vm.endOpened = true;
   };
   vm.dateOptions = {
