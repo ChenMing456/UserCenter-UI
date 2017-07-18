@@ -43,4 +43,8 @@ var app =
                     email: "输入邮箱地址格式不正确"
                 }
             });
+        }])
+        .config(["$resourceProvider",function($resourceProvider){
+            //默认情况下，末尾斜杠（可以引起后端服务器不期望出现的行为）将从计算后的URL中剥离。
+            $resourceProvider.defaults.stripTrailingSlashes = false;
         }]);
