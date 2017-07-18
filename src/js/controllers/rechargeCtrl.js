@@ -9,6 +9,8 @@ app.controller('RechargeCtrl', ['$scope', '$http', function($scope, $http) {
   vm.showAbledButton = true;
   // 点击不同金额button按钮
   vm.showActiveBtn = function(number) {
+    vm.showSuccess = false;
+    vm.showError = false;
     vm.showAbledButton = false;
     vm.customedMoney = '';
     vm.buttonMoney = number;
@@ -19,7 +21,10 @@ app.controller('RechargeCtrl', ['$scope', '$http', function($scope, $http) {
     var r = /^[1-9]\d{0,4}$/;
     vm.showError = false;
     vm.buttonMoney = '';
+    // 如果输入为空 则提示错误
     if (vm.customedMoney == '') {
+      vm.showSuccess = false;
+      vm.showError = true;
       vm.showAbledButton = true;
     } else {
       // 符合规则就显示成功图标 同时充值按钮解除禁用
