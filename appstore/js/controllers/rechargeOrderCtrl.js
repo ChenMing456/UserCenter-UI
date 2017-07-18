@@ -74,8 +74,10 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
   // 首次加载
   getRechargeOrders();
 
-  // 刷新grid
+  // 刷新grid并清除输入日期
   vm.refreshGrid = function() {
+    vm.searchOrderStart = '';
+    vm.searchOrderEnd = '';
     getRechargeOrders();
   };
   // 根据日期起始进行查询筛选

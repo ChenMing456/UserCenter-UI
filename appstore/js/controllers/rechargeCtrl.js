@@ -23,7 +23,7 @@ app.controller('RechargeCtrl', ['$scope', '$http', function($scope, $http) {
       vm.showAbledButton = true;
     } else {
       // 符合规则就显示成功图标 同时充值按钮解除禁用
-      if (r.test(vm.customedMoney)) {
+      if (r.test(vm.customedMoney) || vm.customedMoney == 100000) {
         vm.showSuccess = true;
         vm.showAbledButton = false;
       } else {

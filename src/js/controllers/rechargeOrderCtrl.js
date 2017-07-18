@@ -5,8 +5,17 @@
 
 app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter', function($scope, i18nService, $http, $filter) {
   i18nService.setCurrentLang('zh-cn');
-
   var vm = this;
+  // ui-grid的金额列自定义排序算法
+  vm.moenySortFn = function(a, b) {
+    var new_a = parseInt(a.split('￥')[1].replace(/,/gi, '')),
+      new_b = parseInt(b.split('￥')[1].replace(/,/gi, ''));
+    if (new_b < new_a) {
+      return 1;
+    } else {
+      return -1;
+    }
+  };
   vm.gridOptionsRechargeOrder = {
     enableHorizontalScrollbar: 0, //grid水平滚动条是否显示, 0-不显示  1-显示
     paginationPageSize: 10,
@@ -15,7 +24,8 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
     columnDefs: [{
         name: 'money',
         enableFiltering: false,
-        displayName: '充值金额'
+        displayName: '充值金额',
+        sortingAlgorithm: vm.moenySortFn
       },
       {
         name: 'pay_type',
@@ -25,12 +35,13 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
       {
         name: 'pay_money',
         enableFiltering: false,
-        displayName: '支付金额'
+        displayName: '支付金额',
+        sortingAlgorithm: vm.moenySortFn
       },
       {
         name: 'paid_at',
         enableFiltering: false,
-        displayName: '支付时间'
+        displayName: '支付时间',
       },
       {
         name: 'status',
@@ -63,23 +74,57 @@ app.controller('RechargeOrderCtrl', ['$scope', 'i18nService', '$http', '$filter'
   // 首次加载
   getRechargeOrders();
 
-  // 刷新grid
+  // 刷新grid并清除输入日期
   vm.refreshGrid = function() {
+    vm.searchOrderStart = '';
+    vm.searchOrderEnd = '';
     getRechargeOrders();
   };
-
-  // 搜索
-  $scope.$watch('searchOrder', function(newVal, oldVal) {
-    if (newVal === oldVal)
-      return;
-    vm.gridOptionsRechargeOrder.data = vm.rechargeOrders.filter(function(data) {
-      if (data.paid_at) {
-        if (data.paid_at.toLowerCase().indexOf($scope.searchOrder.toLowerCase()) > -1) {
-          return true;
-        } else {
-          return false;
-        }
+  // 根据日期起始进行查询筛选
+  vm.searchOrderStart = '';
+  vm.searchOrderEnd = '';
+  vm.findOrderResult = function() {
+    if (vm.searchOrderStart && vm.searchOrderEnd) {
+      var searchOrderStart_date = new Date(vm.searchOrderStart).getTime(),
+        searchOrderEnd_date = new Date(vm.searchOrderEnd).getTime();
+      if (!searchOrderStart_date || !searchOrderEnd_date) {
+        return;
       }
-    });
-  });
+      // 根据用户写入或者选择的日期来做判断
+      vm.gridOptionsRechargeOrder.data = vm.rechargeOrders.filter(function(data) {
+        if (data.paid_at) {
+          var paid_at_date = new Date(data.paid_at.split(' ')[0]).getTime();
+          if (paid_at_date > searchOrderStart_date && paid_at_date < searchOrderEnd_date) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+    } else {
+      getRechargeOrders();
+      return;
+    }
+
+  };
+
+
+  // 时间选择器配置
+  vm.openStart = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    vm.startOpen = true;
+  };
+  vm.openEnd = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    vm.endOpened = true;
+  };
+  vm.dateOptions = {
+    formatYear: 'yyyy',
+    formatMonth: 'MM',
+    startingDay: 1,
+    class: 'datepicker'
+  };
+  vm.format = 'yyyy-MM-dd';
 }]);
