@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "应用交付中心",
   "scripts": {
-    "start": "node node_modules/http-server/bin/http-server -o -p"
+    "start": "node node_modules/http-server/bin/http-server -o -p 8088"
   },
   "keywords": [
     "应用",
@@ -31,7 +31,7 @@
     "grunt-swig": "^0.2.1",
     "grunt-usemin": "^3.1.1",
     "gruntfile-gtx": "^0.3.0",
-    "http-server": "^0.6.1",
+    "http-server": "^0.10.0",
     "require-directory": "^2.0.0"
   }
 }
