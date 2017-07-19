@@ -6,11 +6,11 @@ app.controller('ContractCtrl', ['$scope', 'i18nService', '$http', function ($sco
     i18nService.setCurrentLang('zh-cn');
 
     var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
-        '<a ui-sref="account.contract.details({guid:row.entity.guid})" class="btn btn-sm btn-default"><i class="fa fa-pencil-square-o fa-fw"></i>查看</a>' +
-        '<a ng-show="row.entity.status === 10" ui-sref="account.contract.edit({guid:row.entity.guid})" class="btn btn-sm btn-info"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</a>' +
+        '<a ui-sref="account.contract.details({contract_guid:row.entity.guid})" class="btn btn-sm btn-default"><i class="fa fa-pencil-square-o fa-fw"></i>查看</a>' +
+        '<a ng-show="row.entity.status === 10" ui-sref="account.contract.edit({contract_guid:row.entity.guid})" class="btn btn-sm btn-info"><i class="fa fa-pencil-square-o fa-fw"></i>编辑</a>' +
         '</div>';
 
-    var nameCellTemplate = '<div class="ui-grid-cell-contents"><a ui-sref="account.contract.details({guid:row.entity.guid})">{{row.entity.name}}</a></div>';
+    var nameCellTemplate = '<div class="ui-grid-cell-contents"><a ui-sref="account.contract.details({contract_guid:row.entity.guid})">{{row.entity.name}}</a></div>';
 
     var vm = this;
     vm.gridOptionsContract = {
@@ -41,7 +41,7 @@ app.controller('ContractCtrl', ['$scope', 'i18nService', '$http', function ($sco
                     type :data.resources[i].entity.type,
                     template:data.resources[i].entity.template,
                     attachment:data.resources[i].entity.attachment,
-                    status:data.resources[i].entity.status,
+                    status:data.resources[i].entity.status
                 });
             }
             vm.gridOptionsContract.data = vm.contracts;
