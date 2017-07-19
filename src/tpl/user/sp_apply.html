@@ -1,3 +1,9 @@
+<!--修改内容
+1.将表单改为w5c验证格式
+2.添加返回信息，使用name的机制重现之前的表单，使用disable锁死input，用户只能回到之前步骤的修改
+3.修改进度条
+-->
+
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">成为服务提供商申请</h1>
 </div>
@@ -14,22 +20,20 @@
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>企业产品及介绍</h4>
             <p class="m-b">完整的公司及产品介绍有助于我们更好的了解贵公司，加快审核进度</p>
-            <form name="step1" class="form-validation">
+            <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step1">
                 <p>公司全称<span class="is-required">*</span></p>
-                <input type="text" name="company_name" class="form-control" ng-model="company_name" required>
+                <input type="text" name="company_name" class="form-control" ng-model="company_name" ng-minlength="vm.nameminlength" title="" required="">
                 <p class="m-t">公司网站<span class="is-required">*</span></p>
-                <input type="text" name="company_website" placeholder="http://" class="form-control"
-                       ng-model="company_website" required
-                       ng-change="step1.company_website.$valid ? (steps.percent=20) : (steps.percent=10)">
+                <input type="url" name="company_website" placeholder="http://" class="form-control"
+                       ng-model="company_website" required >
                 <p class="m-t">公司介绍<span class="is-required">*</span></p>
-                <textarea name="company_introduction" class="form-control" ng-model="company_introduction"
-                          required></textarea>
+                <textarea name="company_introduction" class="form-control" ng-model="company_introduction" ng-maxlength="vm.introductionmaxlength" required></textarea>
                 <p class="m-t">办公地址<span class="is-required">*</span></p>
-                <input type="text" name="company_address" class="form-control" ng-model="company_address" required/>
+                <input type="text" name="company_address" class="form-control" ng-model="company_address" ng-maxlength="vm.addressmaxlength" required/>
                 <p class="m-t">联系人<span class="is-required">*</span></p>
-                <input type="text" name="linkman" class="form-control" ng-model="linkman" required/>
+                <input type="text" name="linkman" class="form-control" ng-model="linkman" ng-minlength="vm.nameminlength" ng-maxlength="vm.linkmanmaxlength" required/>
                 <p class="m-t">联系电话<span class="is-required">*</span></p>
-                <input type="text" name="contact_number" class="form-control" ng-model="contact_number" required/>
+                <input type="number" name="contact_number" class="form-control" ng-model="contact_number" required/>
 
                 <div class="m-t m-b">
                     <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"
@@ -43,11 +47,11 @@
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>企业资质信息</h4>
             <p class="m-b">企业资质信息错误可能导致申请失败，请务必确保填写的企业资质信息无误</p>
-            <form name="step2" class="form-validation">
+            <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step2">
                 <p class="m-t">企业注册名称<span class="is-required">*</span></p>
-                <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" required>
+                <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" ng-minlength="vm.nameminlength" required>
                 <p class="m-t">工商营业执照注册号<span class="is-required">*</span></p>
-                <input type="text" name="business_license_number" class="form-control" ng-model="business_license_number" required>
+                <input type="number" name="business_license_number" class="form-control" ng-model="business_license_number"  required>
                 <div class="m-t m-b">
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">上一步</button>
                     <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded"
@@ -61,13 +65,13 @@
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>对公账号资料</h4>
             <p class="m-b">TrueCenter会通过此账号与贵公司进行各种财务结算</p>
-            <form name="step3" class="form-validation">
+            <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step3">
                 <p class="m-t">开户银行<span class="is-required">*</span></p>
                 <input type="text" name="corporate_account_bank" class="form-control" ng-model="corporate_account_bank" required>
                 <p class="m-t">开户名<span class="is-required">*</span></p>
-                <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" required>
+                <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" ng-minlength="vm.nameminlength" required>
                 <p class="m-t">对公账号<span class="is-required">*</span></p>
-                <input type="text" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required>
+                <input type="number" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required>
                 <div class="m-t m-b">
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100;steps.step4=true;">下一步</button>
@@ -80,6 +84,36 @@
             <div class="alert alert-warning">
                 <span>请确认[企业信息]、[企业资质]和[对公账户]信息准确无误，提交后将不可更改</span>
             </div>
+            <h4>企业产品及介绍</h4>
+            <p>公司全称<span class="is-required">*</span></p>
+            <input type="text" name="company_name" class="form-control" ng-model="company_name" required disabled>
+            <p class="m-t">公司网站<span class="is-required">*</span></p>
+            <input type="url" name="company_website" placeholder="http://" class="form-control"
+                   ng-model="company_website" required
+                   ng-change="step1.company_website.$valid ? (steps.percent=20) : (steps.percent=10)" disabled>
+            <p class="m-t">公司介绍<span class="is-required">*</span></p>
+            <textarea name="company_introduction" class="form-control" ng-model="company_introduction"
+                      required disabled></textarea>
+            <p class="m-t">办公地址<span class="is-required">*</span></p>
+            <input type="text" name="company_address" class="form-control" ng-model="company_address" required disabled/>
+            <p class="m-t">联系人<span class="is-required">*</span></p>
+            <input type="text" name="linkman" class="form-control" ng-model="linkman" required disabled/>
+            <p class="m-t">联系电话<span class="is-required">*</span></p>
+            <input type="text" name="contact_number" class="form-control" ng-model="contact_number" required disabled/>
+            <br>
+            <h4>企业资质信息</h4>
+            <p class="m-t">企业注册名称<span class="is-required">*</span></p>
+            <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" required disabled>
+            <p class="m-t">工商营业执照注册号<span class="is-required">*</span></p>
+            <input type="text" name="business_license_number" class="form-control" ng-model="business_license_number" required disabled>
+            <br>
+            <h4>对公账号资料</h4>
+            <p class="m-t">开户银行<span class="is-required">*</span></p>
+            <input type="text" name="corporate_account_bank" class="form-control" ng-model="corporate_account_bank" required disabled>
+            <p class="m-t">开户名<span class="is-required">*</span></p>
+            <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" required disabled>
+            <p class="m-t">对公账号<span class="is-required">*</span></p>
+            <input type="text" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required disabled>
             <div class="m-t m-b">
                 <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">上一步</button>
                 <button type="button" class="btn btn-default btn-rounded" >确认提交</button>
