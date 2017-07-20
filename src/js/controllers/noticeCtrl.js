@@ -50,14 +50,20 @@ app.controller('NoticeCtrl', ['$scope', 'i18nService', '$confirm', 'toaster', '$
         getNotices();
     }
 
-    vm.deleteNotice = function (notice) {
+    // 读取消息通知
+    $scope.readNotice = function (notice) {
+        // 使用模态框
+    }
+
+    // 删除消息通知
+    $scope.deleteNotice = function (notice) {
         $confirm({
-            text: '确认要删除该通知消息吗',
+            text: '确认要删除消息[' + notice.title +  ']吗',
             title: "确认删除",
             ok: "确认",
             cancel: '取消'
         }).then(function () {
-            toaster.pop('sucess', '', '删除成功');
+            toaster.pop('success', '', '删除成功');
         });
     }
 
