@@ -17,7 +17,7 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG) {
                 var version = localStorage.getItem('app_version');
                 $urlRouterProvider
-                    .when('/', '/account.signin')
+                    .when('', '/access/signin')
                     .otherwise('/404');
                 $stateProvider
                     .state('404', {
