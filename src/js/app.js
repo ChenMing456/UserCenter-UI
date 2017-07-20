@@ -24,6 +24,7 @@ angular.module('app', [
     'pascalprecht.translate',
 
     'w5c.validator',
+    'angular-confirm',
 
     'account.alarms',
     'account.apps',

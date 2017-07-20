@@ -2,7 +2,7 @@
  * Created by Domoke on 2017/6/26.
  */
 'use strict';
-app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
+app.controller('NoticeCtrl', ['$scope', 'i18nService', '$confirm', 'toaster', '$http', function ($scope, i18nService, $confirm, toaster, $http) {
     i18nService.setCurrentLang('zh-cn');
 
     var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
@@ -48,6 +48,17 @@ app.controller('NoticeCtrl', ['$scope', 'i18nService', '$http', function ($scope
     // 刷新grid
     vm.refreshGrid = function () {
         getNotices();
+    }
+
+    vm.deleteNotice = function (notice) {
+        $confirm({
+            text: '确认要删除该通知消息吗',
+            title: "确认删除",
+            ok: "确认",
+            cancel: '取消'
+        }).then(function () {
+            toaster.pop('sucess', '', '删除成功');
+        });
     }
 
     // 搜索
