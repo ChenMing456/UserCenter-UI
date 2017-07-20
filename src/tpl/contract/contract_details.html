@@ -4,47 +4,59 @@
     </div>
     <!--合约详情显示-->
     <div class="wrapper-md">
-        <div class ="col-sm-8">
+        <div class="col-sm-8">
         <div class="panel panel-default">
             <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">合约名称:</label>
-                    <div class="col-sm-9">
-                        <p class="form-control-static">{{data.contractName}}</p>
+                    <label class="col-sm-4 control-label">合约名称:</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static" >{{contract.contractName}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">合约类型:</label>
-                    <div class="col-sm-9">
-                        <p class="form-control-static">{{data.contractType}}</p>
+                    <label class="col-sm-4 control-label">合约类型:</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{contract.contractType}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">合约状态:</label>
-                    <div class="col-sm-9">
-                        <p class="form-control-static">{{data.contractState}}--待处理</p>
+                    <label class="col-sm-4 control-label">合约状态:</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">{{contract.message}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">合约模板:</label>
-                    <div class="col-sm-9">
-                        <a href="http://xxx.com/xxx.doc">
-                            <button class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-file-text-o"></i>点击下载</button>
+                    <label class="col-sm-4 control-label">合约模板:</label>
+                    <div class="col-sm-8">
+                        <a href="http://xxx.com/xxx.doc" class="btn m-b-xs btn-sm btn-info btn-addon">
+                            <i class="fa fa-file-text-o"></i>点击下载
                         </a>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">合约附件:</label>
-                    <div class="col-sm-9">
+                <!--若为待处理状态，显示提醒上传合约模块-->
+                <div class="form-group" ng-show="contract.contractState===10">
+                    <label class="col-sm-4 control-label">合约附件:</label>
+                    <div class="col-sm-8">
+                        <p class="form-control-static">合约已上传，可点击编辑按钮进行修改</p>
+                        <a href="http://xxx.com/xxx.pdf" class="btn m-b-xs btn-sm btn-primary btn-addon" >
+                            <i class="icon-eye"></i>点击预览
+                        </a>
+                    </div>
+
+                </div>
+                <!--若不为待处理状态，则显示合约上传成功模块-->
+                <div class="form-group" ng-show="contract.contractState===20||contract.contractState===30">
+                    <label class="col-sm-4 control-label">合约附件:</label>
+                    <div class="col-sm-8">
                         <p class="form-control-static">合约附件已上传</p>
-                        <a href="http://xxx.com/xxx.pdf" >
-                            <button class="btn m-b-xs btn-sm btn-primary btn-addon"><i class="icon-eye"></i>点击预览</button>
+                        <a href="http://xxx.com/xxx.pdf" class="btn m-b-xs btn-sm btn-primary btn-addon" >
+                            <i class="icon-eye"></i>点击预览
                         </a>
                     </div>
                 </div>
             </form>
             <!--表单结束-->
         </div>
-      </div>
+        </div>
     </div>
 </div>

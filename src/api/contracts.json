@@ -13,7 +13,7 @@
         "type": "1",
         "template": "http://xxx.com/xxx.doc",
         "attachment": "http://xxx.com/xxx.pdf",
-        "status": "30"
+        "status": 30
       }
     },
     {
@@ -27,7 +27,7 @@
         "type": "1",
         "template": "http://xxx.com/xxx.doc",
         "attachment": "http://xxx.com/xxx.pdf",
-        "status": "10"
+        "status": 10
       }
     },
     {
@@ -41,7 +41,7 @@
         "type": "1",
         "template": "http://xxx.com/xxx.doc",
         "attachment": "http://xxx.com/xxx.pdf",
-        "status": "20"
+        "status": 20
       }
     }
   ]

@@ -2,43 +2,42 @@
     <div class="bg-light lter b-b wrapper-md">
         <h1 class="m-n font-thin h3">编辑合约</h1>
     </div>
-    <div class="wrapper-md">
         <div class="wrapper-md">
-            <div class ="col-sm-8">
+            <div class="col-sm-8">
                 <div class="panel panel-default">
                     <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约名称:</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">资质申请合约</p>
+                                <p class="form-control-static">{{contract.contractName}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约类型:</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">1</p>
+                                <p class="form-control-static">{{contract.contractType}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约状态:</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">10--待处理</p>
+                                <p class="form-control-static">{{contract.message}}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约模板:</label>
                             <div class="col-sm-9">
-                                <a href="http://xxx.com/xxx.doc">
-                                    <button class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-file-text-o"></i>点击下载</button>
+                                <a href="http://xxx.com/xxx.doc" class="btn m-b-xs btn-sm btn-info btn-addon">
+                                    <i class="fa fa-file-text-o"></i>点击下载
                                 </a>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约附件:</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">未上传合约附件，请及时上传</p>
+                                <p class="form-control-static">请上传合约附件</p>
                                 <!--文件上传-->
-                                <div class="wrapper-md" ng-controller="ImgCropCtrl">
+                                <div class="wrapper-md" style="margin-left: -19px" ng-controller="ImgCropCtrl">
                                     <div class="m-b">
                                         <input type="file" id="fileInput" />
                                     </div>
@@ -71,5 +70,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </div>
