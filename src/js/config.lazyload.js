@@ -166,6 +166,13 @@ angular.module('app')
                     files: [
                         '../bower_components/angular-smart-table/dist/smart-table.min.js'
                     ]
+                },
+                {
+                    name: 'pdf',
+                    files: [
+                        '../bower_components/pdfjs-dist/build/pdf.min.js',
+                        '../bower_components/angular-pdf/dist/angular-pdf.min.js'
+                    ]
                 }
             ]
         });

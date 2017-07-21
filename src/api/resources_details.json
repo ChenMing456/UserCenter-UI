@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "guid": "f4f73c73-b5b7-482c-9ca7-c0d907e96084",
+    "created_at": "2017-06-15 13:59:47",
+    "updated_at": null
+  },
+  "entity": {
+    "name": "资源名称1",
+    "type": "资源类型1",
+    "config": "资源连接配置"
+  }
+}

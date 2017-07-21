@@ -1,6 +1,40 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">添加资源</h1>
 </div>
-<div class="wrapper-md">
+<div class="wrapper-md " ng-controller="ResourceAddCtrl as resource">
+    <div class="panel panel-default">
 
+        <div class="panel-body">
+            <form class="bs-example form-horizontal m-t-md">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">资源类型</label>
+                    <div class="col-sm-10">
+                        <select ui-jq="chosen" class="w-md" ng-model="resource_type" data-placeholder="请选择资源类型">
+                            <optgroup label="选择资源类型">
+                                <option value="资源类型1">资源类型1</option>
+                                <option value="资源类型2">资源类型2</option>
+                                <option value="资源类型3">资源类型3</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">资源名称</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control"   placeholder="请填写资源名称" ng-model="resource_name">
+                    </div>
+                </div>
+
+                <div class="col-lg-offset-2 col-lg-10 m-t-md">
+                        <button type="submit" class="btn m-b-xs w-xs btn-success" ng-click="addResource()"><i class="fa fa-plus fa-fw"></i>添加</button>
+                         <a ui-serf="account.resources" href="#/account/resources">
+                             <button  class="btn m-b-xs w-xs btn-default m-l-md" >取消</button>
+                         </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </div>

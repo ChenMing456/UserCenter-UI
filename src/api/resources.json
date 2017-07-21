@@ -3,36 +3,38 @@
   "total_pages":1,
   "resources":[{
     "metadata":{
-      "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96084",
-      "created_at":"2017-06-15 13:59:47",
+      "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96083",
+      "created_at":"2015-06-15 14:59:47",
       "updated_at":null
     },
     "entity":{
-      "name":"资源名称",
-      "type":"资源类型",
+      "name":"我的资源1",
+      "type":"资源类型1",
       "config":"资源连接配置"
     }
   },{
     "metadata":{
       "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96084",
-      "created_at":"2017-06-15 13:59:47",
-      "updated_at":null
-    },
-    "entity":{
-      "name":"我的资源",
-      "type":"资源类型",
-      "config":"资源连接配置"
-    }
-  },{
-    "metadata":{
-      "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96084",
-      "created_at":"2017-06-15 13:59:47",
+      "created_at":"2016-06-15 14:59:47",
       "updated_at":null
     },
     "entity":{
       "name":"我的资源2",
-      "type":"资源类型",
+      "type":"资源类型2",
       "config":"资源连接配置"
     }
-  }]
+  },{
+    "metadata":{
+      "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96085",
+      "created_at":"2017-06-15 14:59:47",
+      "updated_at":null
+    },
+    "entity":{
+      "name":"我的资源3",
+      "type":"资源类型3",
+      "config":"资源连接配置"
+    }
+  }
+
+  ]
 }
