@@ -17,7 +17,13 @@
         "quota_memory": 1024,
         "quota_disk": 500,
         "run_time": 5000,
-        "status": "RUNNING"
+        "status": "RUNNING", 
+        
+        "content":"engines.node (package.json): unspecified",
+        "instance_guid": "001",
+        "title": "标题1",
+        "start_time": "2017-06-15 13:59:47",
+        "end_time": "2017-06-16 13:59:47"
       },
       "user":{
         "guid":"客户ID",
