@@ -199,7 +199,11 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js']);
+                                    return $ocLazyLoad.load('pdf').then(
+                                        function(){
+                                            return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js']);
+                                        }
+                                    );
                                 }]
                         }
                     })
@@ -209,7 +213,11 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js']);
+                                    return $ocLazyLoad.load('pdf').then(
+                                        function(){
+                                            return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js']);
+                                        }
+                                    );
                                 }]
                         }
                     })
