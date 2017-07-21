@@ -3,12 +3,12 @@
  */
 "use strict";
 // 添加资源
-app.controller('ResourceAddCtrl', ['$scope', 'i18nService', '$http','$filter', function ($scope,i18nService, $http,$filter) {
+app.controller('ResourceAddCtrl', ['$scope', 'i18nService', '$http','$filter','toaster', function ($scope,i18nService, $http,$filter,toaster) {
     i18nService.setCurrentLang('zh-cn');
 
     // 点击添加按钮，添加资源
     $scope.addResource=function () {
-        alert("添加成功！");
+
         // 获取当前时间、前端数据
         var date=new Date();
         var local_time=$filter('date')(date, "yyyy-MM-dd HH:mm:ss");
@@ -29,6 +29,8 @@ app.controller('ResourceAddCtrl', ['$scope', 'i18nService', '$http','$filter', f
         //
         // });
 
+        //提示添加成功！
+        return toaster.pop('success', '', '添加成功!');
     };
 
 }]);
