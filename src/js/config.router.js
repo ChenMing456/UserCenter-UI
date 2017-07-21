@@ -56,6 +56,16 @@ angular.module('app')
                         abstract: true,
                         url: '/account',
                         templateUrl: 'tpl/account.html?v=' + version,
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function( $ocLazyLoad){
+                                    return $ocLazyLoad.load('toaster').then(
+                                        function(){
+                                            return $ocLazyLoad.load(['js/controllers/indexCtrl.js']);
+                                        }
+                                    );
+                                }]
+                        }
                     })
                     .state('account.dashboard', {
                         url: '/dashboard',

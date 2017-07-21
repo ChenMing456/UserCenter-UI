@@ -65,7 +65,8 @@ var app =
                 },
                 contact_number:{
                     required:"请输入联系方式（手机号码）",
-                    number:"请输入数字手机号码"
+                    number:"请输入数字手机号码",
+                    minlength:"请输入正确的号码，不少于{minlength}位"
                 },
                 corporate_account_bank:{
                     required:"请输入开户银行"

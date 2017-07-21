@@ -7,7 +7,7 @@
 <div class="bg-light lter b-b wrapper-md">
     <h1 class="m-n font-thin h3">成为服务提供商申请</h1>
 </div>
-<div class="wrapper-md">
+<div class="wrapper-md"  ng-controller="SpApplyCtrl">
     <div class="alert alert-danger">
         <span>此处为审核失败信息</span>
     </div>
@@ -33,7 +33,7 @@
                 <p class="m-t">联系人<span class="is-required">*</span></p>
                 <input type="text" name="linkman" class="form-control" ng-model="linkman" ng-minlength="2" ng-maxlength="10" required/>
                 <p class="m-t">联系电话<span class="is-required">*</span></p>
-                <input type="number" name="contact_number" class="form-control" ng-model="contact_number" required/>
+                <input type="number" name="contact_number" class="form-control" ng-model="contact_number" ng-minlength="3" required/>
 
                 <div class="m-t m-b">
                     <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"
@@ -116,7 +116,7 @@
             <input type="text" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required disabled>
             <div class="m-t m-b">
                 <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">上一步</button>
-                <button type="button" class="btn btn-default btn-rounded" >确认提交</button>
+                <button type="button" class="btn btn-default btn-rounded" ng-click="submit()">{{value}}</button>
             </div>
         </tab>
     </tabset>
