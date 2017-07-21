@@ -1,5 +1,5 @@
 // config
-
+//添加修改，更改w5c表单全局配置，修改错误的显示和移除
 var app =
     angular.module('app')
         .config(
@@ -32,19 +32,60 @@ var app =
         .config(["w5cValidatorProvider", function (w5cValidatorProvider) {
             // 全局配置
             w5cValidatorProvider.config({
-                blurTrig: false,
-                showError: true,
-                removeError: true
-
-            });
-            w5cValidatorProvider.setRules({
-                email: {
-                    required: "输入的邮箱地址不能为空",
-                    email: "输入邮箱地址格式不正确"
+                blurTrig:true,
+                showError:function(elem,errorMessage){
+                    elem.$invalid = true;
+                    elem.title = errorMessage;
+                },
+                removeError:function (elem) {
+                    elem.title = ''
                 }
             });
-        }])
-        .config(["$resourceProvider",function($resourceProvider){
-            //默认情况下，末尾斜杠（可以引起后端服务器不期望出现的行为）将从计算后的URL中剥离。
-            $resourceProvider.defaults.stripTrailingSlashes = false;
+            w5cValidatorProvider.setRules({
+                company_name:{
+                    required:"请输入公司全称",
+                    minlength:"请输入正确的名字，不能少于{minlength}字"
+                },
+                company_website:{
+                    required:"请输入公司网址",
+                    url:"输入url格式不正确"
+                },
+                company_introduction:{
+                    required:"请输入公司介绍",
+                    maxlength:"描述最多不能超过{maxlength}字"
+                },
+                company_address:{
+                    required:"请输入公司地址",
+                    maxlength:"地址不要超过{maxlength}字"
+                },
+                linkman:{
+                    required:"请输入联系人",
+                    minlength:"请输入正确姓名，至少{minlength}个字",
+                    maxlength:"请不要输入过多的姓名，至多{maxlength}字"
+                },
+                contact_number:{
+                    required:"请输入联系方式（手机号码）",
+                    number:"请输入数字手机号码",
+                    minlength:"请输入正确的号码，不少于{minlength}位"
+                },
+                corporate_account_bank:{
+                    required:"请输入开户银行"
+                },
+                coporate_account_name:{
+                    required:"请输入开户名",
+                    minlength:"请输入正确姓名,不少于{minlength}字"
+                },
+                coporate_account_number:{
+                    required:"请输入对公账号",
+                    number:"请输入数字对公账号"
+                },
+                company_reg_name:{
+                    required:"请输入企业注册名称",
+                    minlength:"请输入正确的注册姓名，不得少于{minlength}字"
+                },
+                business_license_number:{
+                    required:"请输入工商营业执照注册号",
+                    number:"请输入数字注册号"
+                }
+            })
         }]);
