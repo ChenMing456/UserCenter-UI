@@ -29,7 +29,7 @@ var app =
             // Tell the module to store the language in the local storage
             $translateProvider.useLocalStorage();
         }])
-        .config(["w5cValidatorProvider", function (w5cValidatorProvider) {
+        /*.config(["w5cValidatorProvider", function (w5cValidatorProvider) {
             // 全局配置
             w5cValidatorProvider.config({
                 blurTrig:true,
@@ -88,4 +88,4 @@ var app =
                     number:"请输入数字注册号"
                 }
             })
-        }]);
+        }]);*/
