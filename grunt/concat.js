@@ -27,6 +27,7 @@ module.exports = {
             'bower_components/angular-ui-grid/ui-grid.min.js',
             'bower_components/w5c-validator/w5cValidator.min.js',
             'bower_components/angular-i18n/angular-locale_zh.js',
+            'bower_components/angular-confirm-modal/angular-confirm.min.js',
 
             'src/js/*.js',
             'src/js/directives/*.js',

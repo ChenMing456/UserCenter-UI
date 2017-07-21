@@ -17,7 +17,7 @@ angular.module('app')
             function ($stateProvider, $urlRouterProvider, JQ_CONFIG) {
                 var version = localStorage.getItem('app_version');
                 $urlRouterProvider
-                    .when('/', '/account.signin')
+                    .when('', '/access/signin')
                     .otherwise('/404');
                 $stateProvider
                     .state('404', {
@@ -199,7 +199,11 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js']);
+                                    return $ocLazyLoad.load('pdf').then(
+                                        function(){
+                                            return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js']);
+                                        }
+                                    );
                                 }]
                         }
                     })
@@ -209,7 +213,11 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js']);
+                                    return $ocLazyLoad.load('pdf').then(
+                                        function(){
+                                            return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js']);
+                                        }
+                                    );
                                 }]
                         }
                     })
