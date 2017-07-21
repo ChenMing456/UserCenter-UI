@@ -2,7 +2,7 @@
  * Created by chenming on 2017/7/14.
  */
 "use strict";
-app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter', '$stateParams', function ($scope,i18nService, $http,$filter,$stateParams) {
+app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter', '$stateParams','toaster', function ($scope,i18nService, $http,$filter,$stateParams,toaster) {
     i18nService.setCurrentLang('zh-cn');
     //获取当前需要编辑的资源的guid
     var guid = $stateParams.resource_guid;
@@ -32,13 +32,14 @@ app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter
                 "config":"资源连接配置"
             }
         };
-        alert("保存成功！");
 
         // 传入后台json文件
         // $http.post('/resources',add_resources).then(function (resp) {
         //
         // });
 
+        //提示保存成功！
+        return toaster.pop('success', '', '保存成功!');
     };
 
 }]);
