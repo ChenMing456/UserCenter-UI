@@ -2,7 +2,7 @@
  * Created by Domoke on 2017/6/26.
  */
 'use strict';
-app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http',function ($scope,i18nService,$http) {
+app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http','$confirm','toaster',function ($scope,i18nService,$http,$confirm,toaster) {
     i18nService.setCurrentLang('zh-cn');
 
     var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
@@ -69,36 +69,43 @@ app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http',function ($scop
     });
 //     //点击资源名称，显示资源详情
 //     $scope.ResourceShowDetails=function (entity) {
-//
-//
 //     };
 //     //编辑资源
 //     $scope.editResource=function (entity) {
 //         // console.log(entity.name);
-//
 // };
+
     //删除资源
     $scope.deleteResource=function (entity) {
-        confirm("是否删除该资源？");
-        //用json模拟效果
-        vm.resources = [];
-        $http.get('api/resources.json').then(function (resp) {
-            var data = resp.data;
-            for(var i in data.resources) {
-                if (entity.name==data.resources[i].entity.name) {
-                    data.resources[i].delete;
+        //使用cinfirm确认是否删除
+        $confirm({
+            text: '确认要删除[  ' + entity.name +  '   ]吗?',
+            title: "确认删除",
+            ok: "确认",
+            cancel: '取消'
+        }).then(function () {
+            //用json模拟效果
+            vm.resources = [];
+            $http.get('api/resources.json').then(function (resp) {
+                var data = resp.data;
+                for(var i in data.resources) {
+                    if (entity.name==data.resources[i].entity.name) {
+                        data.resources[i].delete;
+                    }
+                    else {
+                        vm.resources.push({
+                            guid: data.resources[i].metadata.guid,
+                            create_time: data.resources[i].metadata.created_at,
+                            name: data.resources[i].entity.name,
+                            type: data.resources[i].entity.type,
+                            config: data.resources[i].entity.config
+                        });
+                    }
                 }
-                else {
-                    vm.resources.push({
-                        guid: data.resources[i].metadata.guid,
-                        create_time: data.resources[i].metadata.created_at,
-                        name: data.resources[i].entity.name,
-                        type: data.resources[i].entity.type,
-                        config: data.resources[i].entity.config
-                    });
-                }
-            }
-            vm.gridOptionsResource.data = vm.resources;
+                vm.gridOptionsResource.data = vm.resources;
+            });
+            //删除成功提示
+            toaster.pop('success', '', '删除成功！');
         });
 
         //实际操作，对应后台URL
