@@ -11,7 +11,7 @@ app.controller('HeaderCtrl', ['$scope', '$http', '$modal', 'toaster', '$log', fu
         var modalInstance = $modal.open({
             backdrop: false,
             templateUrl: 'modal_user_change_pwd.html',
-            controller: 'ChangePwdCtrl'
+            controller: 'ChangePwdCtrl as vm'
         });
 
         modalInstance.result.then(function (result) {
@@ -27,13 +27,11 @@ app.controller('HeaderCtrl', ['$scope', '$http', '$modal', 'toaster', '$log', fu
     return vm;
 }]);
 
-app.controller('ChangePwdCtrl', ['$scope', '$http', '$modalInstance', function ($scope, $http, $modalInstance) {
+app.controller('ChangePwdCtrl', ['$scope', '$http', '$modalInstance', '$log', function ($scope, $http, $modalInstance, $log) {
     // 修改密码表单model
-    var vm = $scope.vm = {
-        entity:{}
-    };
+    var vm = this;
 
-    vm.pwdChanging = {
+    vm.entity = {
         password:'',
         new_password:'',
         confirm_password:'',
