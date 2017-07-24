@@ -295,7 +295,7 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appVersionAdd.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appVersionAddCtrl.js']);
                                 }]
                         }
                     })

@@ -7,7 +7,7 @@ app.controller('AppDetailsCtrl', ['$scope', 'i18nService', '$http', function ($s
 
 }]);
 
-app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
+app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', '$modal', 'toaster', '$log', function ($scope, i18nService, $http, $modal, toaster, $log) {
     i18nService.setCurrentLang('zh-cn');
 
     var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
@@ -56,7 +56,30 @@ app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function (
     // 刷新grid
     vm.refreshGrid = function () {
         getComponents();
-    }
+    };
+
+    vm.addComponent = function () {
+        var modalInstance = $modal.open({
+            backdrop: false,
+            templateUrl: 'modal_component_add.html',
+            controller: 'AddComponentCtrl as cpt',
+            resolve: {
+                deps: ['$ocLazyLoad',
+                    function( $ocLazyLoad){
+                        return $ocLazyLoad.load('angularFileUpload');
+                    }]
+            }
+        });
+
+        modalInstance.result.then(function (result) {
+            if(result === 'success') {
+                return toaster.pop('success', '', '新增应用组件成功');
+            }
+            return toaster.pop('error', '', '新增应用组件失败');
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
 
     // 搜索
     $scope.$watch('searchComponent', function (newVal, oldVal) {
@@ -73,6 +96,87 @@ app.controller('AppComponentCtrl', ['$scope', 'i18nService', '$http', function (
             }
         });
     });
+}]);
+
+app.controller('AddComponentCtrl', ['$scope', '$http', '$modalInstance', '$modal', 'toaster', '$log', 'FileUploader', function ($scope, $http, $modalInstance, $modal, toaster, $log, FileUploader) {
+    // 新增应用组件model
+    var vm = this
+
+    vm.uploader = new FileUploader({
+        url: 'js/controllers/upload.php'
+    });
+
+    vm.uploader.filters.push({
+        name: 'customFilter',
+        fn: function(item /*{File|FileLikeObject}*/, options) {
+            return this.queue.length < 2;
+        }
+    });
+
+    // uploader回调监听
+    vm.uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
+        console.info('onWhenAddingFileFailed', item, filter, options);
+    };
+    vm.uploader.onAfterAddingFile = function(fileItem) {
+        console.info('onAfterAddingFile', fileItem);
+    };
+    vm.uploader.onAfterAddingAll = function(addedFileItems) {
+        console.info('onAfterAddingAll', addedFileItems);
+    };
+    vm.uploader.onBeforeUploadItem = function(item) {
+        console.info('onBeforeUploadItem', item);
+    };
+    vm.uploader.onProgressItem = function(fileItem, progress) {
+        console.info('onProgressItem', fileItem, progress);
+    };
+    vm.uploader.onProgressAll = function(progress) {
+        console.info('onProgressAll', progress);
+    };
+    vm.uploader.onSuccessItem = function(fileItem, response, status, headers) {
+        console.info('onSuccessItem', fileItem, response, status, headers);
+    };
+    vm.uploader.onErrorItem = function(fileItem, response, status, headers) {
+        console.info('onErrorItem', fileItem, response, status, headers);
+    };
+    vm.uploader.onCancelItem = function(fileItem, response, status, headers) {
+        console.info('onCancelItem', fileItem, response, status, headers);
+    };
+    vm.uploader.onCompleteItem = function(fileItem, response, status, headers) {
+        console.info('onCompleteItem', fileItem, response, status, headers);
+    };
+    vm.uploader.onCompleteAll = function() {
+        console.info('onCompleteAll');
+    };
+
+    vm.entity = {
+        name:'',
+        version:'',
+        attachment:'',
+        submitted: false
+    };
+
+    // w5c验证配置
+    vm.validateOptions = {
+        blurTrig: true
+    };
+
+    // 确定
+    vm.ok = function (myForm) {
+        myForm.$setDirty();
+        // 防止重复提交
+        vm.entity.submitted = true;
+        $http.get('api/app_component_add.json').then(function (resp) {
+            $modalInstance.close('success');
+        }, function (err) {
+            vm.entity.submitted = false;
+        });
+    }
+
+    // 取消
+    vm.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
 }]);
 
 app.controller('AppVersionCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
