@@ -2,11 +2,11 @@
         <h1 class="m-n font-thin h3">实例详情</h1>
     </div>
     <div class="wrapper-md" ng-controller="InstanceDetailsCtrl as instance">
-        <tabset>
+        <tabset class="tab-container">
             <tab heading="实例信息" ng-controller="InstanceDetailsCtrl as instance">
                 <div class="row">
                     <div class="col-sm-8" ng-init="isEdit=false">
-                        <div class="panel panel-default">
+                        <!-- <div class="panel panel-default"> -->
                             <div ng-show="!isEdit" class="panel-body">
                                 <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
                                     <div class="form-group">
@@ -119,14 +119,14 @@
                                     </div>   
                                 </form>
                             </div>
-                        </div>
+                       <!--  </div> -->
                     </div>
                 </div>
             </tab>
             <tab heading="日志信息" >
               <div class="row">
                     <div class="col-sm-10" ng-init="isEdit=false">
-                        <div class="panel panel-default">                 
+                       <!--  <div class="panel panel-default">      -->            
                     <table class="table table-striped m-b-none">                   
                      <tbody>
                         <tr>                    
@@ -143,12 +143,12 @@
                     </tr>
             </tbody>
         </table>
-     </div>
+   <!--   </div> -->
    </div>
 </div>
 </tab>
 <tab heading="日志分享" ng-controller="LogShareCtrl as share">
-    <div class="panel panel-default">
+  <!--   <div class="panel panel-default"> -->
         <div class="row wrapper"> 
         <!-- 开始日期选择 -->                              
           <div class="col-sm-3" ng-controller="DatepickerDemoCtrl">
@@ -180,7 +180,7 @@
     <div ui-grid="share.gridOptionsLog" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
     ui-grid-auto-resize></div>
 </div>
-</div>
+<!-- </div> -->
 </tab>
 </tabset>
 </div>
