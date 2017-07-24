@@ -16,5 +16,10 @@
   },
   "_source": "https://github.com/Schlogen/angular-confirm.git",
   "_target": "1.1.2",
+<<<<<<< HEAD
+  "_originalSource": "angular-confirm-modal",
+  "_direct": true
+=======
   "_originalSource": "angular-confirm-modal"
+>>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
 }

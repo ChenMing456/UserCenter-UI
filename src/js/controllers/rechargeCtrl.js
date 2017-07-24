@@ -2,7 +2,7 @@
  * Created by Domoke on 2017/7/5.
  */
 "use strict";
-app.controller('RechargeCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('RechargeCtrl', ['$scope', '$http', 'toaster', function($scope, $http, toaster) {
   var vm = this;
   // 自定义金额一开始为空,充值按钮一开始禁用
   vm.customedMoney = '';
@@ -41,9 +41,13 @@ app.controller('RechargeCtrl', ['$scope', '$http', function($scope, $http) {
   // 点击立即充值按钮
   vm.ImmediateRecharge = function() {
     // 发出去一个post表单提交 拿回返回数据 如果状态变为20就证明充值成功
-    // 在这里统一模拟成功(需要modal)
+    // 在这里统一模拟成功
     // console.log(vm.pay_type);
-    alert('充值成功！');
+    var toastInstance = toaster.pop({
+      type: 'success',
+      body: '充值成功！',
+      timeout: 2000
+    });
   };
 
 }]);

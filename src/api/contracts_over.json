@@ -13,7 +13,7 @@
         "type": "1",
         "template": "http://xxx.com/xxx.doc",
         "attachment": "http://xxx.com/xxx.pdf",
-        "status": "30"
+        "status": 30
       }
     }
   ]

@@ -1,0 +1,23 @@
+<nav>
+  <ul class="m-t-none m-b pagination ng-isolate-scope ng-valid ng-dirty ng-valid-parse col-sm-12">
+
+    <li  ng-class="{disabled: noPrevious()}" class="ng-scope col-sm-2"><a href=""  ng-click="goPrevious()" class="ng-binding">上一页</a></li>
+
+    <li class='col-sm-offset-2 col-sm-4 text-center-xs'>
+    <p class='inline app-aside w-3x m-t-xs text-md easyPieChart'>页码:</p>
+      <div class="w-xxs app-aside">
+        <input class="form-control easyPieChart" type="text" min=1 ng-model="pageNum">
+      </div>
+      <p class='inline app-aside w-3x m-t-xs text-md'>/{{pageCount}}</p>
+    </li>
+    <li class='col-sm-2'></li>
+
+    <li ng-class="{disabled: noNext()}" class="ng-scope col-sm-2"><a href="" ng-click="goNext()" class="ng-binding">下一页</a></li>
+  </ul>
+</nav>
+
+<hr>
+<!-- 正在加载提醒 -->
+<div class='easyPieChart' style='font-size:18px'>
+  {{loading}}
+</div>
