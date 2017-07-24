@@ -1,11 +1,186 @@
-<div class="bg-light lter b-b wrapper-md">
-    <h1 class="m-n font-thin h3">实例详情</h1>
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">实例详情</h1>
+    </div>
+    <div class="wrapper-md" ng-controller="InstanceDetailsCtrl as instance">
+        <tabset>
+            <tab heading="实例信息" ng-controller="InstanceDetailsCtrl as instance">
+                <div class="row">
+                    <div class="col-sm-8" ng-init="isEdit=false">
+                        <div class="panel panel-default">
+                            <div ng-show="!isEdit" class="panel-body">
+                                <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">主机地址:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{host}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">端口:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{port}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">CPU使用率:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">0.5%</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">内存使用率:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">20%</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">磁盘使用率:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">36%</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">内存配额(M):</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">1024</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">磁盘配额(G):</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">500</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">运行时间:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{run_time}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">运行状态:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{status}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">客户ID:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{user_guid}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">客户账号:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{user_name}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">客户昵称:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{nick_name}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">应用ID:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{app_guid}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">应用名称:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{app_name}}</p>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">应用版本:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{latest_version}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">组件ID:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{component_guid}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">组件名称:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{component_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-5 control-label">组件版本:</label>
+                                        <div class="col-sm-7">
+                                            <p class="form-control-static">{{component_version}}</p>
+                                        </div>
+                                    </div>   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="日志信息" >
+              <div class="row">
+                    <div class="col-sm-10" ng-init="isEdit=false">
+                        <div class="panel panel-default">                 
+                    <table class="table table-striped m-b-none">                   
+                     <tbody>
+                        <tr>                    
+                          <td class="col-sm-2">
+                            <div  ui-jq="sparkline" ui-options=", {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'#27c24c'}" class="sparkline inline">{{created_at}}</div>
+                        </td>
+                        <td class="col-sm-10">{{content}}</td>  
+                    </tr>
+                    <tr>                    
+                          <td class="col-sm-2">
+                            <div  ui-jq="sparkline" ui-options=", {type:'bar', height:19, barWidth:4, barSpacing:2, barColor:'#27c24c'}" class="sparkline inline">2017-06-15 13:59:47</div>
+                        </td>
+                        <td class="col-sm-10">Clearing previous node cache</td>  
+                    </tr>
+            </tbody>
+        </table>
+     </div>
+   </div>
 </div>
-<div class="wrapper-md" ng-controller="InstanceDetailsCtrl as instance">
-    <tabset>
-        <tab heading="实例信息"></tab>
-        <tab heading="日志信息">
-
-        </tab>
-    </tabset>
+</tab>
+<tab heading="日志分享" ng-controller="LogShareCtrl as share">
+    <div class="panel panel-default">
+        <div class="row wrapper"> 
+        <!-- 开始日期选择 -->                              
+          <div class="col-sm-3" ng-controller="DatepickerDemoCtrl">
+          <div class="input-group w-md">
+              <input type="text" class="form-control" placeholder="起始日期" name="start_time" datepicker-popup="{{format}}" ng-model="share.log_s_time" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+      </div>
+      <!-- 中间连接符 -->
+      <span class="app-aside w-1x m-t-xs">--</span>
+      <!-- 结束日期选择 -->
+      <div class="col-sm-3" ng-controller="DatepickerDemoCtrl">
+            <div class="input-group w-md">
+              <input type="text" class="form-control" placeholder="结束日期" name="end_time" datepicker-popup="{{format}}" ng-model="share.log_e_time" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+            </div>     
+    <div class="col-sm-3"></div>
+    <div class="col-sm-2">
+        <button type="serach" class="btn btn-info"  ng-click="share.search()">查询</button>
+        <button type="reset" class="btn btn-default" ng-click="share.reset()">重置</button>
+    </div>
+</div>
+<div class="table-responsive m-b-lg">
+    <div ui-grid="share.gridOptionsLog" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+    ui-grid-auto-resize></div>
+</div>
+</div>
+</tab>
+</tabset>
 </div>

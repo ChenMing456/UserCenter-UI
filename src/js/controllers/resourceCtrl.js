@@ -2,7 +2,11 @@
  * Created by Domoke on 2017/6/26.
  */
 'use strict';
+<<<<<<< HEAD
 app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http',function ($scope,i18nService,$http) {
+=======
+app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http','$confirm','toaster',function ($scope,i18nService,$http,$confirm,toaster) {
+>>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
     i18nService.setCurrentLang('zh-cn');
 
     var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
@@ -69,12 +73,16 @@ app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http',function ($scop
     });
 //     //点击资源名称，显示资源详情
 //     $scope.ResourceShowDetails=function (entity) {
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
 //     };
 //     //编辑资源
 //     $scope.editResource=function (entity) {
 //         // console.log(entity.name);
+<<<<<<< HEAD
 //
 // };
     //删除资源
@@ -99,6 +107,41 @@ app.controller('ResourceCtrl', ['$scope', 'i18nService', '$http',function ($scop
                 }
             }
             vm.gridOptionsResource.data = vm.resources;
+=======
+// };
+
+    //删除资源
+    $scope.deleteResource=function (entity) {
+        //使用cinfirm确认是否删除
+        $confirm({
+            text: '确认要删除[  ' + entity.name +  '   ]吗?',
+            title: "确认删除",
+            ok: "确认",
+            cancel: '取消'
+        }).then(function () {
+            //用json模拟效果
+            vm.resources = [];
+            $http.get('api/resources.json').then(function (resp) {
+                var data = resp.data;
+                for(var i in data.resources) {
+                    if (entity.name==data.resources[i].entity.name) {
+                        data.resources[i].delete;
+                    }
+                    else {
+                        vm.resources.push({
+                            guid: data.resources[i].metadata.guid,
+                            create_time: data.resources[i].metadata.created_at,
+                            name: data.resources[i].entity.name,
+                            type: data.resources[i].entity.type,
+                            config: data.resources[i].entity.config
+                        });
+                    }
+                }
+                vm.gridOptionsResource.data = vm.resources;
+            });
+            //删除成功提示
+            toaster.pop('success', '', '删除成功！');
+>>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
         });
 
         //实际操作，对应后台URL
