@@ -23,13 +23,8 @@
  }
 }(this, function (exports) {
  'use strict';
-<<<<<<< HEAD
- var pdfjsVersion = '1.6.414';
- var pdfjsBuild = '3b3a179';
-=======
  var pdfjsVersion = '1.7.225';
  var pdfjsBuild = '17d135f';
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
  var pdfjsFilePath = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : null;
  var pdfjsLibs = {};
  (function pdfjsWrapper() {
@@ -1668,11 +1663,7 @@
      this._isInvalid = true;
     }
     function IDNAToASCII(h) {
-<<<<<<< HEAD
-     if ('' === h) {
-=======
      if (h === '') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
       invalid.call(this);
      }
      return h.toLowerCase();
@@ -1730,11 +1721,7 @@
        case 'scheme':
         if (c && ALPHANUMERIC.test(c)) {
          buffer += c.toLowerCase();
-<<<<<<< HEAD
-        } else if (':' === c) {
-=======
         } else if (c === ':') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._scheme = buffer;
          buffer = '';
          if (stateOverride) {
@@ -1743,11 +1730,7 @@
          if (isRelativeScheme(this._scheme)) {
           this._isRelative = true;
          }
-<<<<<<< HEAD
-         if ('file' === this._scheme) {
-=======
          if (this._scheme === 'file') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           state = 'relative';
          } else if (this._isRelative && base && base._scheme === this._scheme) {
           state = 'relative or authority';
@@ -1769,17 +1752,10 @@
         }
         break;
        case 'scheme data':
-<<<<<<< HEAD
-        if ('?' === c) {
-         this._query = '?';
-         state = 'query';
-        } else if ('#' === c) {
-=======
         if (c === '?') {
          this._query = '?';
          state = 'query';
         } else if (c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._fragment = '#';
          state = 'fragment';
         } else {
@@ -1798,11 +1774,7 @@
         }
         break;
        case 'relative or authority':
-<<<<<<< HEAD
-        if ('/' === c && '/' === input[cursor + 1]) {
-=======
         if (c === '/' && input[cursor + 1] === '/') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          state = 'authority ignore slashes';
         } else {
          err('Expected /, got: ' + c);
@@ -1823,21 +1795,12 @@
          this._username = base._username;
          this._password = base._password;
          break loop;
-<<<<<<< HEAD
-        } else if ('/' === c || '\\' === c) {
-         if ('\\' === c) {
-          err('\\ is an invalid code point.');
-         }
-         state = 'relative slash';
-        } else if ('?' === c) {
-=======
         } else if (c === '/' || c === '\\') {
          if (c === '\\') {
           err('\\ is an invalid code point.');
          }
          state = 'relative slash';
         } else if (c === '?') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._host = base._host;
          this._port = base._port;
          this._path = base._path.slice();
@@ -1845,11 +1808,7 @@
          this._username = base._username;
          this._password = base._password;
          state = 'query';
-<<<<<<< HEAD
-        } else if ('#' === c) {
-=======
         } else if (c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._host = base._host;
          this._port = base._port;
          this._path = base._path.slice();
@@ -1874,19 +1833,11 @@
         }
         break;
        case 'relative slash':
-<<<<<<< HEAD
-        if ('/' === c || '\\' === c) {
-         if ('\\' === c) {
-          err('\\ is an invalid code point.');
-         }
-         if ('file' === this._scheme) {
-=======
         if (c === '/' || c === '\\') {
          if (c === '\\') {
           err('\\ is an invalid code point.');
          }
          if (this._scheme === 'file') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           state = 'file host';
          } else {
           state = 'authority ignore slashes';
@@ -1903,11 +1854,7 @@
         }
         break;
        case 'authority first slash':
-<<<<<<< HEAD
-        if ('/' === c) {
-=======
         if (c === '/') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          state = 'authority second slash';
         } else {
          err('Expected \'/\', got: ' + c);
@@ -1931,11 +1878,7 @@
         }
         break;
        case 'authority':
-<<<<<<< HEAD
-        if ('@' === c) {
-=======
         if (c === '@') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          if (seenAt) {
           err('@ already seen.');
           buffer += '%40';
@@ -1943,19 +1886,11 @@
          seenAt = true;
          for (var i = 0; i < buffer.length; i++) {
           var cp = buffer[i];
-<<<<<<< HEAD
-          if ('\t' === cp || '\n' === cp || '\r' === cp) {
-           err('Invalid whitespace in authority.');
-           continue;
-          }
-          if (':' === cp && null === this._password) {
-=======
           if (cp === '\t' || cp === '\n' || cp === '\r') {
            err('Invalid whitespace in authority.');
            continue;
           }
           if (cp === ':' && this._password === null) {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
            this._password = '';
            continue;
           }
@@ -1967,11 +1902,7 @@
           }
          }
          buffer = '';
-<<<<<<< HEAD
-        } else if (EOF === c || '/' === c || '\\' === c || '?' === c || '#' === c) {
-=======
         } else if (c === EOF || c === '/' || c === '\\' || c === '?' || c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          cursor -= buffer.length;
          buffer = '';
          state = 'host';
@@ -1981,11 +1912,7 @@
         }
         break;
        case 'file host':
-<<<<<<< HEAD
-        if (EOF === c || '/' === c || '\\' === c || '?' === c || '#' === c) {
-=======
         if (c === EOF || c === '/' || c === '\\' || c === '?' || c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          if (buffer.length === 2 && ALPHA.test(buffer[0]) && (buffer[1] === ':' || buffer[1] === '|')) {
           state = 'relative path';
          } else if (buffer.length === 0) {
@@ -1996,11 +1923,7 @@
           state = 'relative path start';
          }
          continue;
-<<<<<<< HEAD
-        } else if ('\t' === c || '\n' === c || '\r' === c) {
-=======
         } else if (c === '\t' || c === '\n' || c === '\r') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          err('Invalid whitespace in file host.');
         } else {
          buffer += c;
@@ -2008,16 +1931,6 @@
         break;
        case 'host':
        case 'hostname':
-<<<<<<< HEAD
-        if (':' === c && !seenBracket) {
-         this._host = IDNAToASCII.call(this, buffer);
-         buffer = '';
-         state = 'port';
-         if ('hostname' === stateOverride) {
-          break loop;
-         }
-        } else if (EOF === c || '/' === c || '\\' === c || '?' === c || '#' === c) {
-=======
         if (c === ':' && !seenBracket) {
          this._host = IDNAToASCII.call(this, buffer);
          buffer = '';
@@ -2026,7 +1939,6 @@
           break loop;
          }
         } else if (c === EOF || c === '/' || c === '\\' || c === '?' || c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._host = IDNAToASCII.call(this, buffer);
          buffer = '';
          state = 'relative path start';
@@ -2035,15 +1947,9 @@
          }
          continue;
         } else if ('\t' !== c && '\n' !== c && '\r' !== c) {
-<<<<<<< HEAD
-         if ('[' === c) {
-          seenBracket = true;
-         } else if (']' === c) {
-=======
          if (c === '[') {
           seenBracket = true;
          } else if (c === ']') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           seenBracket = false;
          }
          buffer += c;
@@ -2054,11 +1960,7 @@
        case 'port':
         if (/[0-9]/.test(c)) {
          buffer += c;
-<<<<<<< HEAD
-        } else if (EOF === c || '/' === c || '\\' === c || '?' === c || '#' === c || stateOverride) {
-=======
         } else if (c === EOF || c === '/' || c === '\\' || c === '?' || c === '#' || stateOverride) {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          if ('' !== buffer) {
           var temp = parseInt(buffer, 10);
           if (temp !== relative[this._scheme]) {
@@ -2071,22 +1973,14 @@
          }
          state = 'relative path start';
          continue;
-<<<<<<< HEAD
-        } else if ('\t' === c || '\n' === c || '\r' === c) {
-=======
         } else if (c === '\t' || c === '\n' || c === '\r') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          err('Invalid code point in port: ' + c);
         } else {
          invalid.call(this);
         }
         break;
        case 'relative path start':
-<<<<<<< HEAD
-        if ('\\' === c) {
-=======
         if (c === '\\') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          err('\'\\\' not allowed in path.');
         }
         state = 'relative path';
@@ -2095,55 +1989,32 @@
         }
         break;
        case 'relative path':
-<<<<<<< HEAD
-        if (EOF === c || '/' === c || '\\' === c || !stateOverride && ('?' === c || '#' === c)) {
-         if ('\\' === c) {
-=======
         if (c === EOF || c === '/' || c === '\\' || !stateOverride && (c === '?' || c === '#')) {
          if (c === '\\') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           err('\\ not allowed in relative path.');
          }
          var tmp;
          if (tmp = relativePathDotMapping[buffer.toLowerCase()]) {
           buffer = tmp;
          }
-<<<<<<< HEAD
-         if ('..' === buffer) {
-=======
          if (buffer === '..') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           this._path.pop();
           if ('/' !== c && '\\' !== c) {
            this._path.push('');
           }
-<<<<<<< HEAD
-         } else if ('.' === buffer && '/' !== c && '\\' !== c) {
-          this._path.push('');
-         } else if ('.' !== buffer) {
-          if ('file' === this._scheme && this._path.length === 0 && buffer.length === 2 && ALPHA.test(buffer[0]) && buffer[1] === '|') {
-=======
          } else if (buffer === '.' && '/' !== c && '\\' !== c) {
           this._path.push('');
          } else if ('.' !== buffer) {
           if (this._scheme === 'file' && this._path.length === 0 && buffer.length === 2 && ALPHA.test(buffer[0]) && buffer[1] === '|') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
            buffer = buffer[0] + ':';
           }
           this._path.push(buffer);
          }
          buffer = '';
-<<<<<<< HEAD
-         if ('?' === c) {
-          this._query = '?';
-          state = 'query';
-         } else if ('#' === c) {
-=======
          if (c === '?') {
           this._query = '?';
           state = 'query';
          } else if (c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
           this._fragment = '#';
           state = 'fragment';
          }
@@ -2152,11 +2023,7 @@
         }
         break;
        case 'query':
-<<<<<<< HEAD
-        if (!stateOverride && '#' === c) {
-=======
         if (!stateOverride && c === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
          this._fragment = '#';
          state = 'fragment';
         } else if (EOF !== c && '\t' !== c && '\n' !== c && '\r' !== c) {
@@ -2260,43 +2127,27 @@
       parse.call(this, pathname, 'relative path start');
      },
      get search() {
-<<<<<<< HEAD
-      return this._isInvalid || !this._query || '?' === this._query ? '' : this._query;
-=======
       return this._isInvalid || !this._query || this._query === '?' ? '' : this._query;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      },
      set search(search) {
       if (this._isInvalid || !this._isRelative) {
        return;
       }
       this._query = '?';
-<<<<<<< HEAD
-      if ('?' === search[0]) {
-=======
       if (search[0] === '?') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
        search = search.slice(1);
       }
       parse.call(this, search, 'query');
      },
      get hash() {
-<<<<<<< HEAD
-      return this._isInvalid || !this._fragment || '#' === this._fragment ? '' : this._fragment;
-=======
       return this._isInvalid || !this._fragment || this._fragment === '#' ? '' : this._fragment;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      },
      set hash(hash) {
       if (this._isInvalid) {
        return;
       }
       this._fragment = '#';
-<<<<<<< HEAD
-      if ('#' === hash[0]) {
-=======
       if (hash[0] === '#') {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
        hash = hash.slice(1);
       }
       parse.call(this, hash, 'fragment');
@@ -2404,10 +2255,7 @@
    var warn = sharedUtil.warn;
    var deprecated = sharedUtil.deprecated;
    var createValidAbsoluteUrl = sharedUtil.createValidAbsoluteUrl;
-<<<<<<< HEAD
-=======
    var DEFAULT_LINK_REL = 'noopener noreferrer nofollow';
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
    var CustomStyle = function CustomStyleClosure() {
     var prefixes = [
      'ms',
@@ -2537,11 +2385,7 @@
      globalSettings.externalLinkTarget = LinkTarget.NONE;
      return LinkTarget.NONE;
     case 'externalLinkRel':
-<<<<<<< HEAD
-     return globalSettings ? globalSettings.externalLinkRel : 'noreferrer';
-=======
      return globalSettings ? globalSettings.externalLinkRel : DEFAULT_LINK_REL;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
     case 'enableStats':
      return !!(globalSettings && globalSettings.enableStats);
     default:
@@ -2573,10 +2417,7 @@
    exports.LinkTarget = LinkTarget;
    exports.hasCanvasTypedArrays = hasCanvasTypedArrays;
    exports.getDefaultSetting = getDefaultSetting;
-<<<<<<< HEAD
-=======
    exports.DEFAULT_LINK_REL = DEFAULT_LINK_REL;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
   }));
   (function (root, factory) {
    factory(root.pdfjsDisplayFontLoader = {}, root.pdfjsSharedUtil);
@@ -3966,14 +3807,8 @@
         return new RadioButtonWidgetAnnotationElement(parameters);
        } else if (parameters.data.checkBox) {
         return new CheckboxWidgetAnnotationElement(parameters);
-<<<<<<< HEAD
-       } else {
-        warn('Unimplemented button widget annotation: pushbutton');
-       }
-=======
        }
        warn('Unimplemented button widget annotation: pushbutton');
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
        break;
       case 'Ch':
        return new ChoiceWidgetAnnotationElement(parameters);
@@ -7243,17 +7078,6 @@
       }
       return pattern;
      },
-<<<<<<< HEAD
-     setStrokeColorN: function CanvasGraphics_setStrokeColorN()
-      {
-       this.current.strokeColor = this.getColorN_Pattern(arguments);
-      },
-     setFillColorN: function CanvasGraphics_setFillColorN()
-      {
-       this.current.fillColor = this.getColorN_Pattern(arguments);
-       this.current.patternFill = true;
-      },
-=======
      setStrokeColorN: function CanvasGraphics_setStrokeColorN() {
       this.current.strokeColor = this.getColorN_Pattern(arguments);
      },
@@ -7261,7 +7085,6 @@
       this.current.fillColor = this.getColorN_Pattern(arguments);
       this.current.patternFill = true;
      },
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      setStrokeRGBColor: function CanvasGraphics_setStrokeRGBColor(r, g, b) {
       var color = Util.makeCssRgb(r, g, b);
       this.ctx.strokeStyle = color;
@@ -8528,10 +8351,7 @@
      this.fontLoader = new FontLoader(loadingTask.docId);
      this.destroyed = false;
      this.destroyCapability = null;
-<<<<<<< HEAD
-=======
      this._passwordCapability = null;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      this.pageCache = [];
      this.pagePromises = [];
      this.downloadInfoCapability = createPromiseCapability();
@@ -8544,12 +8364,9 @@
       }
       this.destroyed = true;
       this.destroyCapability = createPromiseCapability();
-<<<<<<< HEAD
-=======
       if (this._passwordCapability) {
        this._passwordCapability.reject(new Error('Worker was destroyed during onPassword callback'));
       }
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
       var waitOn = [];
       this.pageCache.forEach(function (page) {
        if (page) {
@@ -8577,13 +8394,7 @@
      },
      setupMessageHandler: function WorkerTransport_setupMessageHandler() {
       var messageHandler = this.messageHandler;
-<<<<<<< HEAD
-      function updatePassword(password) {
-       messageHandler.send('UpdatePassword', password);
-      }
-=======
       var loadingTask = this.loadingTask;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
       var pdfDataRangeTransport = this.pdfDataRangeTransport;
       if (pdfDataRangeTransport) {
        pdfDataRangeTransport.addRangeListener(function (begin, chunk) {
@@ -8610,20 +8421,6 @@
        this.pdfDocument = pdfDocument;
        loadingTask._capability.resolve(pdfDocument);
       }, this);
-<<<<<<< HEAD
-      messageHandler.on('NeedPassword', function transportNeedPassword(exception) {
-       var loadingTask = this.loadingTask;
-       if (loadingTask.onPassword) {
-        return loadingTask.onPassword(updatePassword, PasswordResponses.NEED_PASSWORD);
-       }
-       loadingTask._capability.reject(new PasswordException(exception.message, exception.code));
-      }, this);
-      messageHandler.on('IncorrectPassword', function transportIncorrectPassword(exception) {
-       var loadingTask = this.loadingTask;
-       if (loadingTask.onPassword) {
-        return loadingTask.onPassword(updatePassword, PasswordResponses.INCORRECT_PASSWORD);
-       }
-=======
       messageHandler.on('PasswordRequest', function transportPasswordRequest(exception) {
        this._passwordCapability = createPromiseCapability();
        if (loadingTask.onPassword) {
@@ -8637,7 +8434,6 @@
        return this._passwordCapability.promise;
       }, this);
       messageHandler.on('PasswordException', function transportPasswordException(exception) {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
        loadingTask._capability.reject(new PasswordException(exception.message, exception.code));
       }, this);
       messageHandler.on('InvalidPDF', function transportInvalidPDF(exception) {
@@ -8948,14 +8744,8 @@
       var objs = this.objs;
       if (!objs[objId]) {
        return false;
-<<<<<<< HEAD
-      } else {
-       return objs[objId].resolved;
-      }
-=======
       }
       return objs[objId].resolved;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      },
      hasData: function PDFObjects_hasData(objId) {
       return this.isResolved(objId);
@@ -8964,14 +8754,8 @@
       var objs = this.objs;
       if (!objs[objId] || !objs[objId].resolved) {
        return null;
-<<<<<<< HEAD
-      } else {
-       return objs[objId].data;
-      }
-=======
       }
       return objs[objId].data;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
      },
      clear: function PDFObjects_clear() {
       this.objs = Object.create(null);
@@ -9062,11 +8846,7 @@
        return;
       }
       if (this.task.onContinue) {
-<<<<<<< HEAD
-       this.task.onContinue.call(this.task, this._scheduleNextBound);
-=======
        this.task.onContinue(this._scheduleNextBound);
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
       } else {
        this._scheduleNext();
       }
@@ -9128,10 +8908,7 @@
    var deprecated = sharedUtil.deprecated;
    var warn = sharedUtil.warn;
    var LinkTarget = displayDOMUtils.LinkTarget;
-<<<<<<< HEAD
-=======
    var DEFAULT_LINK_REL = displayDOMUtils.DEFAULT_LINK_REL;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
    var isWorker = typeof window === 'undefined';
    if (!globalScope.PDFJS) {
     globalScope.PDFJS = {};
@@ -9199,11 +8976,7 @@
    PDFJS.disableCreateObjectURL = PDFJS.disableCreateObjectURL === undefined ? false : PDFJS.disableCreateObjectURL;
    PDFJS.disableWebGL = PDFJS.disableWebGL === undefined ? true : PDFJS.disableWebGL;
    PDFJS.externalLinkTarget = PDFJS.externalLinkTarget === undefined ? LinkTarget.NONE : PDFJS.externalLinkTarget;
-<<<<<<< HEAD
-   PDFJS.externalLinkRel = PDFJS.externalLinkRel === undefined ? 'noreferrer' : PDFJS.externalLinkRel;
-=======
    PDFJS.externalLinkRel = PDFJS.externalLinkRel === undefined ? DEFAULT_LINK_REL : PDFJS.externalLinkRel;
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
    PDFJS.isEvalSupported = PDFJS.isEvalSupported === undefined ? true : PDFJS.isEvalSupported;
    var savedOpenExternalLinksInNewWindow = PDFJS.openExternalLinksInNewWindow;
    delete PDFJS.openExternalLinksInNewWindow;
