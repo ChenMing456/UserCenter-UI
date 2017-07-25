@@ -11,14 +11,12 @@ app.controller('ContractDetailsCtrl', ['$scope', 'i18nService', '$http', '$state
     //根据guid值获取对应的属性值。
     $http.get('api/contracts_unaudit.json').then(function(resp) {
       var data = resp.data;
-      for (var i in data.resources) {
-        vm.contractName = data.resources[i].entity.name;
-        vm.contractType = data.resources[i].entity.type;
-        vm.contractTpl = data.resources[i].entity.template;
-        vm.contractAtta = data.resources[i].entity.attachment;
-        vm.contractState = data.resources[i].entity.status;
-        vm.message = vm.showMassage(data.resources[i].entity.status);
-      }
+        vm.contractName = data.resources[0].entity.name;
+        vm.contractType = data.resources[0].entity.type;
+        vm.contractTpl = data.resources[0].entity.template;
+        vm.contractAtta = data.resources[0].entity.attachment;
+        vm.contractState = data.resources[0].entity.status;
+        vm.message = vm.showMassage(data.resources[0].entity.status);
     });
     //显示处理状态信息。
     vm.showMassage = function(number) {
@@ -34,9 +32,6 @@ app.controller('ContractDetailsCtrl', ['$scope', 'i18nService', '$http', '$state
       }
       return mess;
     };
-
-
-
     // pdfViewer相关配置
     vm.showPdfViewer = false;
     $scope.pdfUrl = 'tpl/relativity.pdf';
@@ -44,21 +39,11 @@ app.controller('ContractDetailsCtrl', ['$scope', 'i18nService', '$http', '$state
     $scope.scroll = 0;
     $scope.loading = '正在加载.....';
     $scope.onLoad = function() {
-      console.log(1111);
       $scope.loading = '';
-    }
+    };
 
     vm.pdfPreview = function() {
       vm.showPdfViewer = true;
     }
   }
-
-
-
-
-
-
-
-
-
 ]);

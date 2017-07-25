@@ -3,7 +3,7 @@
         <h1 class="m-n font-thin h3">编辑合约</h1>
     </div>
         <div class="wrapper-md">
-            <div class="col-sm-8">
+            <div class="col-sm-4">
                 <div class="panel panel-default">
                     <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
                         <div class="form-group">
@@ -27,8 +27,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">合约模板:</label>
                             <div class="col-sm-9">
-                                <a href="http://xxx.com/xxx.doc" class="btn m-b-xs btn-sm btn-info btn-addon">
-                                    <i class="fa fa-file-text-o"></i>点击下载
+                                <a class="btn m-b-xs btn-sm btn-info btn-addon" ng-click='contract.pdfPreview()' >
+                                    <i class="icon-eye"></i>点击预览模板
                                 </a>
                             </div>
                         </div>
@@ -69,6 +69,9 @@
                     <!--表单结束-->
                 </div>
             </div>
+            <!-- 点击预览加载 -->
+            <div class="col-sm-8 m-t-n" ng-if='contract.showPdfViewer'>
+                <ng-pdf template-url="tpl/viewer.html" scale="page-fit" page=1></ng-pdf>
+            </div>
         </div>
-
 </div>
