@@ -34,7 +34,21 @@ app.controller('ContractEditCtrl', ['$scope', 'i18nService','$http','$stateParam
         }
         return mess;
     };
+    //pdfViewer相关配置
+    vm.showPdfViewer = false;
+    $scope.pdfUrl = 'tpl/relativity.pdf';
+    $scope.pdfPassword = 'test';
+    $scope.scroll = 0;
+    $scope.loading = '正在加载.....';
+    $scope.onLoad = function() {
+        $scope.loading = '';
+    }
+
+    vm.pdfPreview = function() {
+        vm.showPdfViewer = true;
+    };
 }]);
+
 //文件拖拽区域
 app.controller('ImgCropCtrl', ['$scope', function($scope) {
     $scope.myImage='';
