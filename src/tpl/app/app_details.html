@@ -7,13 +7,12 @@
             <tab heading="应用信息">
                 <div class="row">
                     <div class="col-sm-8" ng-init="isEdit=false">
-                        <div class="panel panel-default">
-                            <div class="panel-heading font-bold">
+                          <!--  <div class="panel-heading font-bold">
                                 <button type="button" class="btn btn-sm btn-info pull-right m-t-n-xs" ng-click="isEdit=true">
                                     <i class="fa fa-pencil-square-o fa-fw"></i>
                                 </button>
                                 应用信息
-                            </div>
+                            </div>-->
                             <div ng-show="!isEdit" class="panel-body">
                                 <form name="myForm" class="bs-example form-horizontal ng-pristine ng-valid">
                                     <div class="form-group">
@@ -136,44 +135,43 @@
                                     </footer>
                                 </form>
                             </div>
-                        </div>
                     </div>
                 </div>
             </tab>
             <tab heading="组件管理" ng-controller="AppComponentCtrl as component">
-                <div class="panel panel-default">
-                    <div class="row wrapper">
-                        <div class="col-sm-5 m-b-xs">
-                            <a class="btn btn-sm btn-info" ui-sref="account.app_component.add" ><i class="fa fa-plus fa-fw"></i>新增组件</a>
-                            <button type="button" class="btn btn-sm btn-warning" ng-click="component.refreshGrid()"><i class="fa fa-refresh"></i>刷新</button>
-                        </div>
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-3">
-                            <input placeholder="查找组件" class="input-sm form-control" type="text" ng-model="searchComponent"/>
-                        </div>
+                <div class="row wrapper">
+                    <div class="col-sm-5 m-b-xs">
+                        <!--<a class="btn btn-sm btn-info" ui-sref="account.app_component.add" ><i class="fa fa-plus fa-fw"></i>新增组件</a>-->
+                        <button type="button" class="btn btn-sm btn-info" ng-click="component.addComponent()"><i class="fa fa-plus fa-fw"></i>新增组件</button>
+                        <button type="button" class="btn btn-sm btn-warning" ng-click="component.refreshGrid()"><i class="fa fa-refresh"></i>刷新</button>
+                        <script type="text/ng-template" id="modal_component_add.html">
+                            <div ng-include="'tpl/app/modal_component_add.html'"></div>
+                        </script>
                     </div>
-                    <div class="table-responsive m-b-lg">
-                        <div ui-grid="component.gridOptionsComponent" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
-                             ui-grid-auto-resize></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-3">
+                        <input placeholder="查找组件" class="input-sm form-control" type="text" ng-model="searchComponent"/>
                     </div>
+                </div>
+                <div class="table-responsive m-b-lg">
+                    <div ui-grid="component.gridOptionsComponent" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                         ui-grid-auto-resize></div>
                 </div>
             </tab>
             <tab heading="版本管理" ng-controller="AppVersionCtrl as version">
-                <div class="panel panel-default">
-                    <div class="row wrapper">
-                        <div class="col-sm-5 m-b-xs">
-                            <a class="btn btn-sm btn-info" ui-sref="account.app_version.add" ><i class="fa fa-plus fa-fw"></i>新增版本</a>
-                            <button type="button" class="btn btn-sm btn-warning" ng-click="version.refreshGrid()"><i class="fa fa-refresh"></i>刷新</button>
-                        </div>
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-3">
-                            <input placeholder="查找版本" class="input-sm form-control" type="text" ng-model="searchVersion"/>
-                        </div>
+                <div class="row wrapper">
+                    <div class="col-sm-5 m-b-xs">
+                        <a class="btn btn-sm btn-info" ui-sref="account.app_version.add({app_guid:'123'})" ><i class="fa fa-plus fa-fw"></i>新增版本</a>
+                        <button type="button" class="btn btn-sm btn-warning" ng-click="version.refreshGrid()"><i class="fa fa-refresh"></i>刷新</button>
                     </div>
-                    <div class="table-responsive m-b-lg">
-                        <div ui-grid="version.gridOptionsVersion" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
-                             ui-grid-auto-resize></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-3">
+                        <input placeholder="查找版本" class="input-sm form-control" type="text" ng-model="searchVersion"/>
                     </div>
+                </div>
+                <div class="table-responsive m-b-lg">
+                    <div ui-grid="version.gridOptionsVersion" ui-grid-resize-columns ui-grid-move-columns ui-grid-pagination
+                         ui-grid-auto-resize></div>
                 </div>
             </tab>
             <tab heading="应用评价">
