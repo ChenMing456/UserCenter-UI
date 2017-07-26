@@ -2,6 +2,7 @@
 1.将表单改为w5c验证格式
 2.添加返回信息，使用name的机制重现之前的表单，使用disable锁死input，用户只能回到之前步骤的修改
 3.修改进度条
+4.添加提交响应函数
 -->
 
 <div class="bg-light lter b-b wrapper-md">
@@ -11,29 +12,29 @@
     <div class="alert alert-danger">
         <span>此处为审核失败信息</span>
     </div>
-    <div id="sp_apply_finish" class="alert alert-success" >
+    <div id="sp_apply_finish" class="alert alert-success" ng-hide="!is_finish">
         <span>您的申请已提交，三个工作内会给您答复</span>
     </div>
     <tabset ng-hide="is_finish" class="tab-container" ng-init="steps={percent:0, step1:true, step2:false, step3:false, step4:false}">
-        <tab heading="企业信息" active="steps.step1" select="steps.percent=0">
+        <tab heading="企业信息" active="steps.step1" >
             <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>企业产品及介绍</h4>
             <p class="m-b">完整的公司及产品介绍有助于我们更好的了解贵公司，加快审核进度</p>
             <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step1">
                 <p>公司全称<span class="is-required">*</span></p>
-                <input type="text" name="company_name" class="form-control" ng-model="company_name" ng-minlength="2" title="" required="">
+                <input type="text" name="company_name" class="form-control" ng-model="company_name" ng-minlength="2" title="" required="" ng-change="step1.company_name.$valid ? (steps.percent = 5):(steps.percent=0)">
                 <p class="m-t">公司网站<span class="is-required">*</span></p>
                 <input type="url" name="company_website" placeholder="http://" class="form-control"
-                       ng-model="company_website" required >
+                       ng-model="company_website" required  ng-change="step1.company_website.$valid ? (steps.percent =10) : (steps.percent = 5)">
                 <p class="m-t">公司介绍<span class="is-required">*</span></p>
-                <textarea name="company_introduction" class="form-control" ng-model="company_introduction" ng-maxlength="200" required></textarea>
+                <textarea name="company_introduction" class="form-control" ng-model="company_introduction" ng-maxlength="200" required ng-change="step1.company_introduction.$valid ? (steps.percent = 20) : (steps.percent=10)"></textarea>
                 <p class="m-t">办公地址<span class="is-required">*</span></p>
-                <input type="text" name="company_address" class="form-control" ng-model="company_address" ng-maxlength="30" required/>
+                <input type="text" name="company_address" class="form-control" ng-model="company_address" ng-maxlength="30" required ng-change="step1.company_address.$valid ? (steps.percent = 30) : (steps.percent=20)"/>
                 <p class="m-t">联系人<span class="is-required">*</span></p>
-                <input type="text" name="linkman" class="form-control" ng-model="linkman" ng-minlength="2" ng-maxlength="10" required/>
+                <input type="text" name="linkman" class="form-control" ng-model="linkman" ng-minlength="2" ng-maxlength="10" required ng-change="step1.linkman.$valid ? (steps.percent = 40) : (steps.percent=30)"/>
                 <p class="m-t">联系电话<span class="is-required">*</span></p>
-                <input type="number" name="contact_number" class="form-control" ng-model="contact_number" ng-minlength="3" required/>
+                <input type="number" name="contact_number" class="form-control" ng-model="contact_number" ng-minlength="3" required ng-change="step1.contact_number.$valid ? (steps.percent = 50) : (steps.percent=40)"/>
 
                 <div class="m-t m-b">
                     <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded"
@@ -42,16 +43,16 @@
                 </div>
             </form>
         </tab>
-        <tab heading="企业资质" disabled="step1.$invalid" active="steps.step2" select="steps.percent=30">
+        <tab heading="企业资质" disabled="step1.$invalid" active="steps.step2">
             <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>企业资质信息</h4>
             <p class="m-b">企业资质信息错误可能导致申请失败，请务必确保填写的企业资质信息无误</p>
             <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step2">
                 <p class="m-t">企业注册名称<span class="is-required">*</span></p>
-                <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" ng-minlength="2" required>
+                <input type="text" name="company_reg_name" class="form-control" ng-model="company_reg_name" ng-minlength="2" required ng-change="step2.company_reg_name.$valid ? (steps.percent = 60) : (steps.percent=50)">
                 <p class="m-t">工商营业执照注册号<span class="is-required">*</span></p>
-                <input type="number" name="business_license_number" class="form-control" ng-model="business_license_number"  required>
+                <input type="number" name="business_license_number" class="form-control" ng-model="business_license_number"  required ng-change="step2.business_license_number.$valid ? (steps.percent = 70) : (steps.percent=60)">
                 <div class="m-t m-b">
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">上一步</button>
                     <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded"
@@ -60,25 +61,25 @@
                 </div>
             </form>
         </tab>
-        <tab heading="对公账号" disabled="step2.$invalid" active="steps.step3" select="steps.percent=60">
+        <tab heading="对公账号" disabled="step2.$invalid" active="steps.step3">
             <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <h4>对公账号资料</h4>
             <p class="m-b">TrueCenter会通过此账号与贵公司进行各种财务结算</p>
             <form class="form-validation form-horizontal w5c-form demo-form" role="form" w5c-form-validate="vm.validateOptions" novalidate name="step3">
                 <p class="m-t">开户银行<span class="is-required">*</span></p>
-                <input type="text" name="corporate_account_bank" class="form-control" ng-model="corporate_account_bank" required>
+                <input type="text" name="corporate_account_bank" class="form-control" ng-model="corporate_account_bank" required ng-change="step3.corporate_account_bank.$valid ? (steps.percent = 80) : (steps.percent=70)">
                 <p class="m-t">开户名<span class="is-required">*</span></p>
-                <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" ng-minlength="2" required>
+                <input type="text" name="corporate_account_name" class="form-control" ng-model="corporate_account_name" ng-minlength="2" required ng-change="step3.corporate_account_name.$valid ? (steps.percent = 90) : (steps.percent=80)">
                 <p class="m-t">对公账号<span class="is-required">*</span></p>
-                <input type="number" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required>
+                <input type="number" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required ng-change="step3.corporate_account_number.$valid ? (steps.percent = 100) : (steps.percent=90)">
                 <div class="m-t m-b">
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">上一步</button>
                     <button type="button" class="btn btn-default btn-rounded" ng-click="steps.percent=100;steps.step4=true;">下一步</button>
                 </div>
             </form>
         </tab>
-        <tab heading="确认提交" disabled="step3.$invalid" active="steps.step4" select="steps.percent=100">
+        <tab heading="确认提交" disabled="step3.$invalid" active="steps.step4">
             <p class="m-b">完成度：{{steps.percent}}%</p>
             <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
             <div class="alert alert-warning">
@@ -116,7 +117,7 @@
             <input type="text" name="corporate_account_number" class="form-control" ng-model="corporate_account_number" required disabled>
             <div class="m-t m-b">
                 <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">上一步</button>
-                <button type="button" class="btn btn-default btn-rounded" ng-click="submit()">{{value}}</button>
+                <button type="button" class="btn btn-default btn-rounded" ng-click="ConfSubmit()">确认提交</button>
             </div>
         </tab>
     </tabset>
