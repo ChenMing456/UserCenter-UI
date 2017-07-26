@@ -10,44 +10,49 @@
                     <div class="panel-body">
                         <form name="myForm" class="form-horizontal form-validation">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">应用Logo*</label>
+                                <label class="col-sm-2 control-label">应用Logo</label>
                                 <div class="col-sm-10">
-                                    <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
+                                    <input ng-model="application.appForm.logo" ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">应用名称*</label>
+                                <label class="col-sm-2 control-label">应用名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="输入应用名称">
+                                    <input ng-model="application.appForm.name" type="text" class="form-control" placeholder="输入应用名称">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">应用简称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="输入应用简称">
-                                </div>
-                            </div>
-                            <div class="form-group hide">
-                                <label class="col-sm-2 control-label">应用类型</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" >
+                                    <input ng-model="application.appForm.simple_name" type="text" class="form-control" placeholder="输入应用简称">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">应用分类*</label>
+                                <label class="col-sm-2 control-label">应用类型</label>
                                 <div class="col-sm-10">
-                                    <select name="account" class="form-control m-b">
-                                        <option>分类 1</option>
-                                        <option>分类 2</option>
-                                        <option>分类 3</option>
-                                        <option>分类 4</option>
+                                    <label  class="m-r">
+                                        <input type="radio" name="type" value="1" ng-model="application.appForm.type">
+                                        普通应用
+                                    </label>
+                                    <label  class="m-r">
+                                        <input type="radio" name="type" value="2" ng-model="application.appForm.type">
+                                        容器应用
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">应用分类</label>
+                                <div class="col-sm-10">
+                                    <select ng-model="application.appForm.category">
+                                        <option ng-repeat="x in categoryInfo" value="{{x.value}}">{{x.name}}</option>
+                                    </select>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">应用简介</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3" placeholder="输入应用简介"></textarea>
+                                    <textarea ng-model="application.appForm.intro" class="form-control" rows="3" placeholder="输入应用简介"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -61,12 +66,12 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">详细描述</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" rows="6" placeholder="输入应用详细描述"></textarea>
+                                    <textarea ng-model="application.appForm.description_text" class="form-control" rows="6" placeholder="输入应用详细描述"></textarea>
                                 </div>
                             </div>
 
                             <footer class="panel-footer text-right bg-light lter">
-                                <a ui-sref="account.app.details({app_guid:'123'})" class="btn btn-success" ng-disabled="myForm.$invalid">创建</a>
+                                <a ng-click="application.createApp()" class="btn btn-success" ng-disabled="myForm.$invalid">创建</a>
                                 <a ui-sref="account.apps" class="btn btn-default">取消</a>
                                 <!--<button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid">提交</button>-->
                             </footer>

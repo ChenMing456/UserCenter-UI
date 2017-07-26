@@ -59,7 +59,7 @@
       </div>
     </div>
     <!-- 点击预览加载 -->
-    <div class="col-sm-8 m-t-n" ng-if='contract.showPdfViewer'>
+    <div class="col-sm-8" ng-if='contract.showPdfViewer' style="box-shadow: 1px 1px 4px rgba(58, 63, 81, 0.73);background: #fff;">
       <ng-pdf template-url="tpl/viewer.html" scale="page-fit" page=1></ng-pdf>
     </div>
   </div>
