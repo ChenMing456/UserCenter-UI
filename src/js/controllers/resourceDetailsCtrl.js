@@ -2,11 +2,9 @@
  * Created by chenming on 2017/7/14.
  */
 "use strict";
-<<<<<<< HEAD
-app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter', '$stateParams', function ($scope,i18nService, $http,$filter,$stateParams) {
-=======
+
 app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter', '$stateParams','toaster', function ($scope,i18nService, $http,$filter,$stateParams,toaster) {
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
+
     i18nService.setCurrentLang('zh-cn');
     //获取当前需要编辑的资源的guid
     var guid = $stateParams.resource_guid;
@@ -36,21 +34,15 @@ app.controller('ResourceDetailsCtrl', ['$scope', 'i18nService', '$http','$filter
                 "config":"资源连接配置"
             }
         };
-<<<<<<< HEAD
-        alert("保存成功！");
-=======
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
 
         // 传入后台json文件
         // $http.post('/resources',add_resources).then(function (resp) {
         //
         // });
 
-<<<<<<< HEAD
-=======
         //提示保存成功！
         return toaster.pop('success', '', '保存成功!');
->>>>>>> 20419f7e676ff377fe82c8a1eae6022ac2c28b1a
+
     };
 
 }]);
