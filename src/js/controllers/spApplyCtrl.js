@@ -67,9 +67,7 @@ app.controller('SpApplyCtrl', ['$scope', 'i18nService', '$http', function ($scop
     var vm = this;
 
     $scope.is_finish = false;
-    $scope.valueC = "确认提交";
-    $scope.valueE = "submit";
-    $scope.submit = function(){
+    $scope.ConfSubmit = function(){
         $scope.is_finish = true;
     }
 }]);
