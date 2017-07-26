@@ -333,6 +333,26 @@ angular.module('app')
                                 }]
                         }
                     })
+                    .state('account.app.payDetails', {
+                    url:'/:app_guid/payDetails',
+                    templateUrl: 'tpl/app/app_pay_details.html',
+                    resolve: {
+                        deps: ['$ocLazyLoad',
+                            function ($ocLazyLoad) {
+                                return $ocLazyLoad.load(['js/controllers/appPayDetailsCtrl.js']);
+                            }]
+                        }
+                    })
+                    .state('account.app.marketDetails', {
+                        url:'/:app_guid/marketDetails',
+                        templateUrl: 'tpl/app/app_market_details.html',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function ($ocLazyLoad) {
+                                    return $ocLazyLoad.load(['js/controllers/appMarketDetailsCtrl.js']);
+                                }]
+                        }
+                    })
             }
         ]
     );

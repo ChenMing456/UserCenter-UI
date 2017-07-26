@@ -1,0 +1,132 @@
+{
+  "total_results": 6,
+  "total_pages": 1,
+  "resources": [
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "my-app-name",
+        "simple_name": "my-app-simple-name",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b1.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 10
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446f",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "欧耶",
+        "simple_name": "哈哈",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b3.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 20
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446f",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "嘻嘻",
+        "simple_name": "哈哈",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b4.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 10
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446f",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "啦啦",
+        "simple_name": "哈哈",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b1.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 40
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446f",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "呵呵",
+        "simple_name": "哈哈",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b1.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 30
+      }
+    },
+    {
+      "metadata": {
+        "guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446f",
+        "created_at": "2016-06-08T16:41:33Z",
+        "updated_at": "2016-06-08T16:41:26Z"
+      },
+      "entity": {
+        "user_guid": "22b3b0a0-6511-47e5-8f7a-93bb32ff446e",
+        "name": "哈哈",
+        "simple_name": "哈哈",
+        "intro": "",
+        "description_imgs": "",
+        "description_text": "",
+        "type": 1,
+        "category": 1,
+        "logo": "img/b1.jpg",
+        "provider_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff446e",
+        "app_version_guid": "22b3b0a0-6511-47e5-8f7a-93bbd2ff4468",
+        "status": 20
+      }
+    }
+  ]
+}

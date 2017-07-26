@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "guid": "f4f73c73-b5b7-482c-9ca7-c0d907e96084",
+    "created_at": "2017-06-15 13:59:47",
+    "updated_at": null
+  },
+  "entity": {
+    "name": "应用名称",
+    "logo": "",
+    "intro": "简介内容",
+    "description_text": "具备1Tbps抗D能力，采用云端防护模式，客户无需购买或租用硬件清洗设备，按需使用；同时，百度安全团队全程支持防护；有效防御各类攻击，包括（不限于）流量型、应用型、扫描窥探型、协议漏洞型、协议选项型等DDoS攻击，如SYN Flood、UDP Flood、DNS Query Flood、CC等，挽回因网站或业务服务中断造成的诸多损失。 由国内最顶级Web安全专家组成的技术团队，为不同行业、不同规模的网站提供了革命性的云防护安全模式，彻底颠覆了过去单点部署WAF形式的被动防护，以网站替身的形式为网站拦截各种SQL注入、XSS跨站、网站挂马、篡改、拖库等黑客攻击，并做到实时更新防护策略，第一时间防御各种0day漏洞，有效保护用户源站安全。",
+    "description_images": "",
+    "category_guid": "",
+    "category_name": "",
+    "grade_star": 4.5,
+    "used_count": 100,
+    "versions": [
+      {
+        "number": "1.0.1",
+        "introduction": "第一版",
+        "published_at": "2017-06-1513: 59: 47"
+      },
+      {
+        "number": "1.0.2",
+        "introduction": "丰富防sql攻击能力",
+        "published_at": "2017-06-1513: 59: 47"
+      },
+      {
+        "number": "1.0.3",
+        "introduction": "高可用",
+        "published_at": "2017-06-1513: 59: 47"
+      }
+    ],
+    "comments": [
+      {
+        "user_guid": "f4f73c73-b5b7-234c-9ca7-c0d907e96084",
+        "nick_name": "Domoke",
+        "grade_star": "",
+        "headimg": "",
+        "comment": "",
+        "created_at": "2017-06-1513: 59: 23"
+      }
+    ],
+    "sp_info": {
+    },
+    "published_at": "2017-06-1513: 59: 47"
+  }
+}

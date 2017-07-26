@@ -1,0 +1,35 @@
+{
+  "total_results":2,
+  "total_pages":1,
+  "resources":[{
+    "metadata":{
+      "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96084",
+      "created_at":"2017-06-15 13:59:47",
+      "updated_at":null
+    },
+    "entity":{
+      "name":"应用名称",
+      "logo":"",
+      "intro":"简介",
+      "categroy_guid":"",
+      "category_name":"安全类",
+      "published_at":"2017-06-15 13:59:47"
+    }
+  },
+    {
+      "metadata":{
+        "guid":"f4f73c73-b5b7-482c-9ca7-c0d907e96084",
+        "created_at":"2017-06-15 13:59:47",
+        "updated_at":null
+      },
+      "entity":{
+        "name":"哈哈",
+        "logo":"",
+        "intro":"简介",
+        "categroy_guid":"",
+        "category_name":"基础服务",
+        "published_at":"2017-06-15 13:59:47"
+      }
+    }
+  ]
+}
