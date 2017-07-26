@@ -12,4 +12,11 @@ angular.module('account.apps', [])
     this.buyApp = function () {
         // 购买应用
     };
-});
+})
+.factory('Components',function ($resource) {
+    return $resource('/components/:guid',{guid: '@guid'});
+})
+.service('Componets',function ($http) {
+
+})
+;

@@ -174,31 +174,15 @@
                          ui-grid-auto-resize></div>
                 </div>
             </tab>
-            <tab heading="应用评价">
+            <tab heading="应用评价" ng-controller="AppCommentCtrl as comment">
                 <ul class="list-group list-group-lg no-borders pull-in m-b-none">
-                    <li class="list-group-item">
+                    <li class="list-group-item" ng-repeat="commentInfo in comment.comments">
                         <div class="row m-b-sm">
-                            <div class="col-lg-4"><span class="h4 text-primary">昵称</span></div>
-                            <div class="col-lg-4"><rating  ng-model="4" readonly="1" state-on="'fa fa-star text-warning'" state-off="'fa fa-star-o'"></rating></div>
-                            <div class="col-lg-4">2017-07-08 09:34:23</div>
+                            <div class="col-lg-4"><span class="h4 text-primary">{{commentInfo.user_guid}}</span></div>
+                            <div class="col-lg-4"><rating  ng-model="commentInfo.star" readonly="1" state-on="'fa fa-star text-warning'" state-off="'fa fa-star-o'"></rating></div>
+                            <div class="col-lg-4">{{commentInfo.create_time}}</div>
                         </div>
-                        <p class="b wrapper-md pos-rlt bg-light r r-2x"><span class="arrow top pull-left arrow-light"></span>这平台用起来真方便！！！36个赞</p>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row m-b-sm">
-                            <div class="col-lg-4"><span class="h4 text-primary">杨小哥</span></div>
-                            <div class="col-lg-4"><rating  ng-model="4" readonly="1" state-on="'fa fa-star text-warning'" state-off="'fa fa-star-o'"></rating></div>
-                            <div class="col-lg-4">2017-07-08 09:34:23</div>
-                        </div>
-                        <p class="b wrapper-md pos-rlt bg-light r r-2x"><span class="arrow top pull-left arrow-light"></span>这味道才正宗！</p>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row m-b-sm">
-                            <div class="col-lg-4"><span class="h4 text-primary">小马哥</span></div>
-                            <div class="col-lg-4"><rating  ng-model="4" readonly="1" state-on="'fa fa-star text-warning'" state-off="'fa fa-star-o'"></rating></div>
-                            <div class="col-lg-4">2017-07-08 09:34:23</div>
-                        </div>
-                        <p class="b wrapper-md pos-rlt bg-light r r-2x"><span class="arrow top pull-left arrow-light"></span>不错不错，这就是我需要的。。。</p>
+                        <p class="b wrapper-md pos-rlt bg-light r r-2x"><span class="arrow top pull-left arrow-light"></span>{{commentInfo.comment}}</p>
                     </li>
                 </ul>
             </tab>

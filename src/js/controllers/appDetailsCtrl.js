@@ -3,7 +3,33 @@
  */
 "use strict";
 
-app.controller('AppDetailsCtrl', ['$scope', 'i18nService', '$http', function ($scope, i18nService, $http) {
+app.controller('AppDetailsCtrl', ['$scope', 'i18nService', '$http','$state','$stateParams', function ($scope, i18nService, $http,$state,$stateParams) {
+    var vm = this;
+    vm.appGuid = $stateParams.app_guid;
+    vm.appDetail = {
+        name : "",
+        simple_name : "",
+        intro : "",
+        description_imgs : "",
+        description_text : "",
+        type : "",
+        category : "",
+        logo : ""
+    }
+
+    //查询应用信息详情
+    var getAppDetail = function () {
+
+    }
+
+    //加载应用详情
+    getAppDetail();
+
+    //修改应用信息详情
+    var postAppDetail = function () {
+
+    }
+
 
 }]);
 
@@ -249,4 +275,33 @@ app.controller('AppVersionCtrl', ['$scope', 'i18nService', '$http', function ($s
             }
         });
     });
+}]);
+
+app.controller('AppCommentCtrl', ['$scope', 'i18nService', '$http','$state','$stateParams', function ($scope, i18nService, $http,$state,$stateParams) {
+    var vm = this;
+    vm.appGuid = $stateParams.app_guid;
+    vm.comments = [];
+
+    //查询应用评价
+    var getAppComments = function (appGuid) {
+        vm.comments = [];
+        $http.get('api/app_comments.json').then(function (resp) {
+            var data = resp.data;
+            angular.forEach(data.resources,function (app_comment) {
+                var commentInfo = {
+                    guid:app_comment.metadata.guid,
+                    user_guid:app_comment.entity.user_guid,
+                    star:app_comment.entity.star,
+                    comment:app_comment.entity.comment,
+                    create_time:app_comment.metadata.created_at,
+                }
+                vm.comments.push(commentInfo);
+            })
+        })
+    }
+
+    //加载应用评价
+    getAppComments(vm.appGuid);
+
+
 }]);
