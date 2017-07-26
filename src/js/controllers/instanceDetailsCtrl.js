@@ -28,14 +28,14 @@
       $scope.content=data.resources[0].entity.content;
       $scope.created_at=data.resources[0].metadata.created_at;
     })
-
-
   }]);
+
+
  app.controller('LogShareCtrl', ['$scope', 'i18nService', '$http', '$modal',function ($scope, i18nService, $http,$modal) {
   i18nService.setCurrentLang('zh-cn');
 
   var optCellTemplate = '<div class="ui-grid-cell-contents btn-group">' +
-  '<button type="button" class="btn btn-sm btn-success" ng-click="grid.appScope.openModal()"><i class="icon-share-alt"></i>分享</button>' +
+  '<button type="button" class="btn btn-sm btn-success" ng-click="grid.appScope.openModal()"><i class="icon-share-alt"></i> 分享</button>' +
   '</div>';
 
   var vm = this;
@@ -77,13 +77,12 @@
 
     // 重置grid
     vm.reset = function () {
-   // alert("11");
    vm.log_s_time='';
    vm.log_e_time='';
    getLogs();
  };
 
-   
+
     //根据起始时间查询分享列表
     vm.search=function () {
       if(vm.log_s_time&&vm.log_e_time){
@@ -107,9 +106,6 @@
       }
     };
     
-
-
-
     $scope.openModal = function (size) {
       var modalInstance = $modal.open({
         templateUrl: 'tpl/instance/modal_instance_logs_share.html',
