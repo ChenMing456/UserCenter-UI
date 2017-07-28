@@ -7,6 +7,7 @@ stages:
 build:
   stage: build
   script:
+    - npm install
     - export PROJECT_VERSION=`echo ${CI_BUILD_REF:0:7}`
     - echo $PROJECT_VERSION
     - sed -i "s/1.0.0/$PROJECT_VERSION/g" src/js/main.js
