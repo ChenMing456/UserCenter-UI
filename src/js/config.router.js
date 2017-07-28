@@ -22,7 +22,7 @@ angular.module('app')
                 $stateProvider
                     .state('404', {
                         url: '/404',
-                        templateUrl: 'tpl/404.html',
+                        templateUrl: 'tpl/404.html?v=' + version,
                     })
                     .state('access', {
                         url: '/access',
@@ -30,27 +30,27 @@ angular.module('app')
                     })
                     .state('access.signin', {
                         url: '/signin',
-                        templateUrl: 'tpl/user/user_signin.html',
+                        templateUrl: 'tpl/user/user_signin.html?v=' + version,
                         resolve: {
                             deps: ['uiLoad',
                                 function( uiLoad ){
-                                    return uiLoad.load( ['js/controllers/userSigninCtrl.js'] );
+                                    return uiLoad.load( ['js/controllers/userSigninCtrl.js?v=' + version] );
                                 }]
                         }
                     })
                     .state('access.signup', {
                         url: '/signup',
-                        templateUrl: 'tpl/user/user_signup.html',
+                        templateUrl: 'tpl/user/user_signup.html?v=' + version,
                         resolve: {
                             deps: ['uiLoad',
                                 function( uiLoad ){
-                                    return uiLoad.load( ['js/controllers/userSignupCtrl.js'] );
+                                    return uiLoad.load( ['js/controllers/userSignupCtrl.js?v=' + version] );
                                 }]
                         }
                     })
                     .state('access.forgotpwd', {
                         url: '/forgotpwd',
-                        templateUrl: 'tpl/page_forgotpwd.html'
+                        templateUrl: 'tpl/page_forgotpwd.html?v=' + version
                     })
                     .state('account', {
                         abstract: true,
@@ -61,7 +61,7 @@ angular.module('app')
                                 function( $ocLazyLoad){
                                     return $ocLazyLoad.load('toaster').then(
                                         function(){
-                                            return $ocLazyLoad.load(['js/controllers/indexCtrl.js']);
+                                            return $ocLazyLoad.load(['js/controllers/indexCtrl.js?v=' + version]);
                                         }
                                     );
                                 }]
@@ -69,21 +69,21 @@ angular.module('app')
                     })
                     .state('account.dashboard', {
                         url: '/dashboard',
-                        templateUrl: 'tpl/account_dashboard.html',
+                        templateUrl: 'tpl/account_dashboard.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/dashboardCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/dashboardCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.apps', {
                         url: '/apps',
-                        templateUrl: 'tpl/account_apps.html',
+                        templateUrl: 'tpl/account_apps.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -93,31 +93,31 @@ angular.module('app')
                     })
                     .state('account.app.details', {
                         url:'/:app_guid/details',
-                        templateUrl: 'tpl/app/app_details.html',
+                        templateUrl: 'tpl/app/app_details.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appDetailsCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appDetailsCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.app.create', {
                         url:'/create',
-                        templateUrl: 'tpl/app/app_create.html',
+                        templateUrl: 'tpl/app/app_create.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appCreateCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appCreateCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.instances', {
                         url: '/instances',
-                        templateUrl: 'tpl/account_instances.html',
+                        templateUrl: 'tpl/account_instances.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/instanceCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/instanceCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -127,21 +127,21 @@ angular.module('app')
                     })
                     .state('account.instance.details', {
                         url:'/:instance_guid/details',
-                        templateUrl: 'tpl/instance/instance_details.html',
+                        templateUrl: 'tpl/instance/instance_details.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/instanceDetailsCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/instanceDetailsCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.resources', {
                         url: '/resources',
-                        templateUrl: 'tpl/account_resources.html',
+                        templateUrl: 'tpl/account_resources.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/resourceCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/resourceCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -151,41 +151,41 @@ angular.module('app')
                     })
                     .state('account.resource.details', {
                         url:'/:resource_guid/details',
-                        templateUrl: 'tpl/resource/resource_details.html',
+                        templateUrl: 'tpl/resource/resource_details.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/resourceDetailsCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/resourceDetailsCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.resource.add', {
                         url:'/add',
-                        templateUrl: 'tpl/resource/resource_add.html',
+                        templateUrl: 'tpl/resource/resource_add.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/resourceAddCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/resourceAddCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.customers', {
                         url: '/customers',
-                        templateUrl: 'tpl/account_customers.html',
+                        templateUrl: 'tpl/account_customers.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/customerCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/customerCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.contracts', {
                         url: '/contracts',
-                        templateUrl: 'tpl/account_contracts.html',
+                        templateUrl: 'tpl/account_contracts.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/contractCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/contractCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -195,13 +195,13 @@ angular.module('app')
                     })
                     .state('account.contract.details', {
                         url:'/:contract_guid/details',
-                        templateUrl: 'tpl/contract/contract_details.html',
+                        templateUrl: 'tpl/contract/contract_details.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
                                     return $ocLazyLoad.load('pdf').then(
                                         function(){
-                                            return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js']);
+                                            return $ocLazyLoad.load(['js/controllers/contractDetailsCtrl.js?v=' + version]);
                                         }
                                     );
                                 }]
@@ -209,13 +209,13 @@ angular.module('app')
                     })
                     .state('account.contract.edit', {
                         url:'/:contract_guid/edit',
-                        templateUrl: 'tpl/contract/contract_edit.html',
+                        templateUrl: 'tpl/contract/contract_edit.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
                                     return $ocLazyLoad.load('pdf').then(
                                         function(){
-                                            return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js']);
+                                            return $ocLazyLoad.load(['js/controllers/contractEditCtrl.js?v=' + version]);
                                         }
                                     );
                                 }]
@@ -223,51 +223,51 @@ angular.module('app')
                     })
                     .state('account.recharge_orders', {
                         url: '/recharge_orders',
-                        templateUrl: 'tpl/account_recharge_orders.html',
+                        templateUrl: 'tpl/account_recharge_orders.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/rechargeOrderCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/rechargeOrderCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.recharge', {
                         url: '/recharge',
-                        templateUrl: 'tpl/recharge/recharge.html',
+                        templateUrl: 'tpl/recharge/recharge.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/rechargeCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/rechargeCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.alarms', {
                         url: '/alarms',
-                        templateUrl: 'tpl/account_alarms.html',
+                        templateUrl: 'tpl/account_alarms.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/alarmCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/alarmCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.user_logs', {
                         url: '/user_logs',
-                        templateUrl: 'tpl/account_user_logs.html',
+                        templateUrl: 'tpl/account_user_logs.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/userLogCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/userLogCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.sp_apply', {
                         url: '/sp_apply',
-                        templateUrl: 'tpl/user/sp_apply.html',
+                        templateUrl: 'tpl/user/sp_apply.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/spApplyCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/spApplyCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -277,11 +277,11 @@ angular.module('app')
                     })
                     .state('account.app_component.add', {
                         url: '/add',
-                        templateUrl: 'tpl/app/app_component_add.html',
+                        templateUrl: 'tpl/app/app_component_add.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appComponentAddCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appComponentAddCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -291,31 +291,31 @@ angular.module('app')
                     })
                     .state('account.app_version.add', {
                         url: '/add',
-                        templateUrl: 'tpl/app/app_version_add.html',
+                        templateUrl: 'tpl/app/app_version_add.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appVersionAddCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appVersionAddCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.app_version.edit', {
                         url: '/edit',
-                        templateUrl: 'tpl/app/app_version_edit.html',
+                        templateUrl: 'tpl/app/app_version_edit.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appVersionEdit.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appVersionEdit.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.notices', {
                         url: '/notices',
-                        templateUrl: 'tpl/account_notices.html',
+                        templateUrl: 'tpl/account_notices.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/noticeCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/noticeCtrl.js?v=' + version]);
                                 }]
                         }
                     })
@@ -325,31 +325,31 @@ angular.module('app')
                     })
                     .state('account.example.form_valid', {
                         url: '/form_valid',
-                        templateUrl: 'tpl/example/form_valid.html',
+                        templateUrl: 'tpl/example/form_valid.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function($ocLazyLoad){
-                                    return $ocLazyLoad.load(['js/controllers/exampleCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/exampleCtrl.js?v=' + version]);
                                 }]
                         }
                     })
                     .state('account.app.payDetails', {
                     url:'/:app_guid/payDetails',
-                    templateUrl: 'tpl/app/app_pay_details.html',
+                    templateUrl: 'tpl/app/app_pay_details.html?v=' + version,
                     resolve: {
                         deps: ['$ocLazyLoad',
                             function ($ocLazyLoad) {
-                                return $ocLazyLoad.load(['js/controllers/appPayDetailsCtrl.js']);
+                                return $ocLazyLoad.load(['js/controllers/appPayDetailsCtrl.js?v=' + version]);
                             }]
                         }
                     })
                     .state('account.app.marketDetails', {
                         url:'/:app_guid/marketDetails',
-                        templateUrl: 'tpl/app/app_market_details.html',
+                        templateUrl: 'tpl/app/app_market_details.html?v=' + version,
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['js/controllers/appMarketDetailsCtrl.js']);
+                                    return $ocLazyLoad.load(['js/controllers/appMarketDetailsCtrl.js?v=' + version]);
                                 }]
                         }
                     })

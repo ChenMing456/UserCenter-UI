@@ -6,7 +6,7 @@
 angular.module('account.recharge_logs', [])
     .factory('RechargeLogs', function ($resource) {
 
-        return $resource('/recharge_logs/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/recharge_logs/:guid', {guid: '@guid'});
     })
     .service('RechargeLogService', function ($http) {
 

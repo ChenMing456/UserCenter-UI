@@ -6,7 +6,7 @@
 angular.module('account.customers', [])
     .factory('Customers', function ($resource) {
 
-        return $resource('/customers/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/customers/:guid', {guid: '@guid'});
     })
     .service('CustomerService', function ($http) {
 

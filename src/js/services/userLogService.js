@@ -6,7 +6,7 @@
 angular.module('account.user_logs', [])
     .factory('UserLogs', function ($resource) {
 
-        return $resource('/user_logs/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/user_logs/:guid', {guid: '@guid'});
     })
     .service('UserLogService', function ($http) {
 

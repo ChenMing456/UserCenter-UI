@@ -1,0 +1,13 @@
+---
+applications:
+- name: TrueCenter用户中心-dev
+  memory: 512M
+  host: user-center
+  path: ./
+  buildpack: Static
+  env:
+    USER_API_ENDPOINT: https://truecenter.truepaas.com
+    # Use Google DNS by default
+    NGINX_RESOLVER: 10.0.0.11
+    #Enforce https is used (using x_forwarded_proto check) .Default: enabled
+    FORCE_HTTPS: 1

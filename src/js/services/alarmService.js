@@ -6,7 +6,7 @@
 angular.module('account.alarms', [])
     .factory('Alarms', function ($resource) {
 
-        return $resource('/alarms/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/alarms/:guid', {guid: '@guid'});
     })
     .service('AlarmService', function ($http) {
 

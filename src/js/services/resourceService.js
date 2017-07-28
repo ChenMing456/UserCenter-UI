@@ -6,7 +6,7 @@
 angular.module('account.resources', [])
     .factory('Resources', function ($resource) {
 
-        return $resource('/resources/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/resources/:guid', {guid: '@guid'});
     })
     .service('ResourceService', function ($http) {
 
