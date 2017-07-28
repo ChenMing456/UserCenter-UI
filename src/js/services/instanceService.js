@@ -6,7 +6,7 @@
 angular.module('account.instances', [])
     .factory('Instances', function ($resource) {
 
-        return $resource('/instances/:guid', {guid: '@guid'});
+        return $resource('/v1/userapi/instances/:guid', {guid: '@guid'});
     })
     .service('InstanceService', function ($http) {
 

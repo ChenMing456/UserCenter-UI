@@ -6,7 +6,7 @@
 angular.module('account.apps', [])
 .factory('Apps', function ($resource) {
 
-    return $resource('/apps/:guid', {guid: '@guid'});
+    return $resource('/v1/userapi/apps/:guid', {guid: '@guid'});
 })
 .service('AppService', function ($http) {
     this.buyApp = function () {
@@ -14,7 +14,7 @@ angular.module('account.apps', [])
     };
 })
 .factory('Components',function ($resource) {
-    return $resource('/components/:guid',{guid: '@guid'});
+    return $resource('/v1/userapi/components/:guid',{guid: '@guid'});
 })
 .service('Componets',function ($http) {
 

@@ -10,6 +10,7 @@ module.exports = {
             {expand: true, src: "**", cwd: 'src/img',     dest: "appstore/img"},
             {expand: true, src: "**", cwd: 'src/js',      dest: "appstore/js"},
             {expand: true, src: "**", cwd: 'src/tpl',     dest: "appstore/tpl"},
+            {expand: true, src: "**", cwd: 'src/conf',     dest: "appstore/"},
             {expand: true, src: 'ui-grid.eot', cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/',flatten: true},
             {expand: true, src: 'ui-grid.svg', cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/'},
             {expand: true, src: 'ui-grid.ttf', cwd:'bower_components/angular-ui-grid/', dest : 'appstore/css/'},

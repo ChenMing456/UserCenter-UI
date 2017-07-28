@@ -1,0 +1,26 @@
+before_script:
+  
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - export PROJECT_VERSION=`echo ${CI_BUILD_REF:0:7}`
+    - echo $PROJECT_VERSION
+    - sed -i "s/1.0.0/$PROJECT_VERSION/g" src/js/main.js
+    - grunt build:appstore -v
+  artifacts:
+    expire_in: 1 day
+    when: on_success
+    name: "${CI_BUILD_STAGE}_${CI_BUILD_REF_NAME}_${PROJECT_VERSION}"
+    paths:
+      - appstore/
+
+deploy:
+  stage: deploy
+  script:
+    - cf login -a https://api.truepaas.com -u ci -p cisecret -o "system" -s "dev" --skip-ssl-validation
+    - cf push -f appstore/manifest.yml
